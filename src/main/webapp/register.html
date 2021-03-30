@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册</title>
+</head>
+<style>
+    .td_span{
+        opacity: 0;
+        color: red;
+        font-size: 12px;
+    }
+    .td_input:focus-within .td_span{
+        opacity: 1;
+    }
+    .reg_btn{
+        padding: 12px;
+        padding-left: 45px;
+        padding-right: 45px;
+        background: #005ba8;
+        outline: none;
+        color: white;
+        font-family: 微软雅黑;
+        border: 0;
+        box-shadow:0 0 6px #0000FF ;
+        font-size: 20px;
+        margin-bottom: 50px;
+        display: block;
+        margin-left: 30%;
+        margin-top: 30px;
+    }
+    .reg_btn:hover{
+        background: #4F4F4F;
+    }
+</style>
+<body>
+<div  class="reg" style="margin-left: 20%">
+   	<h1>物流信息平台注册页面：</h1>
+    <form name="register" id="register" contentType = multipart/form-data >
+
+        <h4 style="margin-bottom: -20px">基本用户信息</h4>
+        <h5 style="margin-bottom: 0px"> ----------------------------------------------------------------------------------------------------</h5>
+        <div>
+            &nbsp; &nbsp;用户名：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="text" name="username" id="username" value="sdf616">
+                <span class="td_span">用户名由4-12位的字母、数字组成</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;密码：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block" >
+                <input type="password" name="password" id="password" value="sdf616">
+                <span class="td_span">密码由长度为6-20位的字母、数字组成</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            重复密码：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="password" name="password2" id="password2" value="sdf616">
+                <span class="td_span">请重复输入密码</span>
+            </div>
+        </div>
+
+        <h4 style="margin-bottom: -20px">联系方式</h4>
+        <h5 style="margin-bottom: 0px"> ----------------------------------------------------------------------------------------------------</h5>
+        <div>
+            真实姓名：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="text" name="realName" id="realName">
+                <span class="td_span">请输入真实的姓名</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;性别：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                男<input type="radio" name="sex" value="MAN">&nbsp;&nbsp;
+                女<input type="radio" name="sex" value="WOMAN">
+                <span class="td_span">请选择您的性别</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            移动电话：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="text" name="phone" id="phone">
+                <span class="td_span">请输入正确的移动电话</span>
+            </div>
+        </div>
+
+        <h4 style="margin-bottom: -20px">公司信息</h4>
+        <h5 style="margin-bottom: 0px"> ----------------------------------------------------------------------------------------------------</h5>
+        <div>
+            公司名称：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="text" name="companyName" id="companyName">
+                <span class="td_span">请输入真实的公司名称</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            公司地址：
+            <span style="color: red">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <select name="state" id="state">
+                    <option selected="selected">中国</option>
+                </select>
+                <select name="province" id="province">
+                    <option disabled="disabled" selected="selected">请选择省市</option>
+                </select>
+                <span class="td_span">请选择公司地址</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            详细地址：
+            <span style="color: #ff0000">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="text" name="detailedAddress" id="detailedAddress">
+                <span class="td_span">请输入公司详细地址</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            公司电话：
+            <span style="color: #ff0000">*</span>
+            <div  class="td_input" style="display: inline-block">
+                <input type="tel" name="companyPhone" id="companyPhone"  value="sdf616">
+                <span class="td_span">请输入正确的移动电话</span>
+            </div>
+        </div>
+        <div style="margin-top: 10px">
+            行业类型：
+            <span style="color: #ff0000">*</span>
+            <div  class="td_input">
+                <div style="display: block;margin-left: 90px">
+                    <input type="radio" name="type" value="LOGISTICS_SUPPLY">贸易商
+                    <span class="td_span">如果您是制造商、贸易公司，想询价，想找货代，请选择</span>
+                </div>
+                <div style="display: block;margin-left: 90px">
+                    <input type="radio" name="type" value="LOGISTICS_DEMAND">物流供应商
+                    <span class="td_span">如果您经营货代、报关、仓储等公司，想揽货，找合作，请选择</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 10px">
+            公司证明：
+            <span style="color: #ff0000">*</span>
+            <input value="请选择图片" type="file" name="file" id="file"
+                   accept="image/jpg,image/jpeg,image/png,image/bmp"/>
+            <span style="color: red;font-size: 12px">请提供公司相关证明图片</span>
+        </div>
+
+        <div style="margin-top: 10px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="">备注：</span>
+            &nbsp;&nbsp;<div  class="td_input" style="display: inline-block">
+                <textarea  rows="5" cols="40" name="remark" id="remark"></textarea>
+                <span class="td_span">请输入备注</span>
+            </div>
+        </div>
+
+        <input style="" type="button" onclick="btnClick()" value="提 交 注 册" class="reg_btn">
+
+        </table>
+    </form>
+</div>
+
+<script src="http://localhost:8080/js/jquery-1.12.4.min.js"></script>
+<script>
+    var province = document.getElementById("province"); //省市
+    /**
+     * 1.获取省市
+     */
+    window.onload = function(){
+        $.ajax({
+            url: "/api/v1/area/all", success: function (result) {
+                if (result != null) {
+                    $.each(result, function (i, item) {
+                        var  varItem = new Option(item.name, item.code);
+                        province.options.add(varItem);
+                    });
+                }
+            }
+        });
+    }
+
+    /**
+     *  2.提交注册
+     **/
+    function btnClick(){
+        let username = $('#username').val();
+        var password = $('#password').val();
+        var password2 = $('#password2').val();
+        var realName = $('#realName').val();
+        var sex = $("input[name='sex']:checked").val();
+        var phone = $('#phone').val();
+        var companyName = $('#companyName').val();
+        var state = $('#state').val();
+        var detailedAddress = $('#detailedAddress').val();
+        var companyPhone = $('#companyPhone').val();
+        var type = $("input[name='type']:checked").val();
+        var file = $("input[name='file']")[0].files;
+        var remark = $("#remark").val();
+        var areaName=$("#province option:selected").text();
+
+        /**
+         * 3.验证格式
+         */
+        var zz_object = {
+            "uname":/^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+\w{3,11}$/,
+            "pword":/^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+\w{5,19}$/,
+            "phone":/^1\d{10}$/,
+        }
+        if(!zz_object.uname.test(username) || username == null || username =='') {
+            alert("用户名格式不正确，请重新输入！")
+        } else if(!zz_object.pword.test(password) || password == null || password =='') {
+            alert("密码格式不正确，请重新输入！")
+        } else if(password != (password2) || password2 == null || password2 =='') {
+            alert("两次输入密码不一致，请重新输入！")
+        }else if(sex == null) {
+            alert("请选择性别！")
+        }else if(!zz_object.phone.test(phone) || phone == null || phone =='') {
+            alert("请输入正确的移动电话！")
+        }else if(realName == null || realName =='') {
+            alert("请输入您的真实姓名！")
+        }else if(companyName == null || companyName =='') {
+            alert("请输入您的公司名称！")
+        }else if(province.value == "请选择省市") {
+            alert("请选择公司所在省市")
+        }else if(detailedAddress == null || detailedAddress == '') {
+            alert("请输入公司详细地址")
+        }else if(companyPhone == null || companyPhone =='') {
+            alert("请输入公司电话")
+        }else if(type == null) {
+            alert("请选择行业类型")
+        }else if(file == null) {
+            alert("请上传公司相应证明照片")
+        }else{
+            // 存到form表单
+            var userFormData = new FormData();
+            userFormData.append("username", username);
+            userFormData.append("password", password);
+            userFormData.append("realName", realName);
+            userFormData.append("sex", sex);
+            userFormData.append("phone", phone);
+            userFormData.append("companyName", companyName);
+            userFormData.append("areaCode", province.value);
+            userFormData.append("companyAddress", state + areaName + detailedAddress);
+            userFormData.append("companyPhone", companyPhone);
+            userFormData.append("type", type);
+            userFormData.append("remark", remark);
+            userFormData.append("file", file[0]);
+            // 异步请求
+            $.ajax({
+                type: 'POST',
+                url: "/api/v1/user/register",
+                data:userFormData,
+                mimeType:"multipart/form-data",
+                processData:false,
+                contentType:false,
+                async:false,
+                dataType : "json",
+                success: function (result) {
+                    if(result.code == 0){
+                        var res = confirm("注册成功,是否返回登录页面?");
+                        if(res){
+                           window.location.href="login.html";
+                        }
+                    }else{
+                       alert(result.msg);
+                    }
+                },
+                error: function (){
+                    window.location.href="error404.jsp";
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>

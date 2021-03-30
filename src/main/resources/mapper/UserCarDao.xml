@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.swp.dao.UserCarDao">
+    <!--搜索发布的运输工程-->
+    <select id="page" resultType="com.swp.model.dto.UserCarPageDTO">
+        SELECT
+            a.id,
+            a.area_code_original AS areaCodeOriginal,
+            a.area_name_original AS areaNameOriginal,
+            a.area_code_destination AS areaCodeDestination,
+            a.area_name_destination AS areaNameDestination,
+            a.data,
+            a.pass_area AS passArea,
+            a.payment_method AS paymentMethod,
+            a.service,
+            a.status,
+            a.go_back AS goBack,
+            a.type,
+            a.price,
+            a.price_way AS priceWay,
+            b.company_name AS companyName,
+            b.phone,
+            b.real_name AS realName,
+            c.type AS carType,
+            c.load AS carLoad,
+            c.bulk AS carBulk
+        FROM
+            t_user_car AS a LEFT JOIN t_user AS b
+            ON a.user_id = b.id
+            LEFT JOIN t_car AS c
+            ON a.car_id= c.id
+        WHERE
+            a.is_delete=0
+            <if test="carType != null">
+                AND c.type = #{carType}
+            </if>
+            <if test="areaNameOriginal != null and areaNameOriginal != ''">
+                AND a.area_name_original = #{areaNameOriginal}
+            </if>
+            <if test="areaNameDestination != null and areaNameDestination != ''">
+                AND a.area_name_destination = #{areaNameDestination}
+            </if>
+            <if test="paymentMethod != null">
+                AND a.payment_method = #{paymentMethod}
+            </if>
+    </select>
+</mapper>

@@ -1,6 +1,14 @@
-Ôªøpackage com.swp.service;
+package com.swp.service;
 
+import com.swp.common.CommonResult;
 import com.swp.model.condition.UserLoginCondition;
+import com.swp.model.condition.UserRegisterCondition;
+import com.swp.model.dto.UserDTO;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
+import java.io.IOException;
 
 /**
  * @author wanping.sheng
@@ -12,10 +20,17 @@ import com.swp.model.condition.UserLoginCondition;
  * <li>Version: 1.0</li>
  * <li>Content: create</li>
  */
+@Validated
 public interface UserService {
     /**
-     * ÁôªÂΩïÈ™åËØÅ
+     * µ«¬º—È÷§
      * @param condition
      */
-    void login(UserLoginCondition condition);
+    CommonResult login(UserLoginCondition condition);
+
+    /**
+     * ◊¢≤·
+     * @param condition
+     */
+    CommonResult save(@Valid UserRegisterCondition condition) throws IOException;
 }

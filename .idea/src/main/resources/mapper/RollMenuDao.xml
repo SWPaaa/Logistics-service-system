@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.RollMenuDao">
+
+    <resultMap id="BaseResultMap" type=".entity.RollMenu">
+        <!--@Table roll_menu-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="rollCode" column="roll_code" jdbcType="VARCHAR"/>
+        <result property="menuId" column="menu_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, roll_code, menu_id
+        from logistics_service_system.roll_menu
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, roll_code, menu_id
+        from logistics_service_system.roll_menu
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, roll_code, menu_id
+        from logistics_service_system.roll_menu
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="rollCode != null and rollCode != ''">
+                and roll_code = #{rollCode}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into logistics_service_system.roll_menu(roll_code, menu_id)
+        values (#{rollCode}, #{menuId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update logistics_service_system.roll_menu
+        <set>
+            <if test="rollCode != null and rollCode != ''">
+                roll_code = #{rollCode},
+            </if>
+            <if test="menuId != null">
+                menu_id = #{menuId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from logistics_service_system.roll_menu where id = #{id}
+    </delete>
+
+</mapper>

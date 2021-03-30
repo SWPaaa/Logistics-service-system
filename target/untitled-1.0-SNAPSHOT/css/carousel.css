@@ -1,0 +1,108 @@
+﻿.pic{
+    width: 1920px;
+    height: 600px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.pic_img ul>li{
+    width: 1920px;
+    height: 600px;
+    font-size: 20px;
+    position: relative;
+}
+.pic_img ul>li>a>img{
+    width: 1920px;
+    height: 600px;
+    display: inline-block;
+    overflow: hidden;
+}
+.pic_img ul>li>a>span{
+    text-align: center;
+    display: block;
+    width: 1920px;
+    height: 80px;
+    color: #0D0D0D;
+    line-height: 80px;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 10px;
+    font-size: 30px;
+}
+.tub a{
+    opacity: 0.5;
+    display: inline-block;
+    width: 50px;
+    height: 7px;
+    background: white;
+    float: left;
+    margin-left: 20px;
+}
+.tub {
+    width: 400px;
+    height: 50px;
+    position: absolute;
+    left: 40%;
+    bottom: 0px;
+}
+.tub .bianse{/*图标变色*/
+    background: #005ba8;
+}
+
+/**
+    --搜索栏--
+ */
+.search{
+    width: 1000px;
+    height: 50px;
+    margin: auto;
+    border: darkorange solid 5px;
+}
+.search>select:nth-child(1){
+    padding-left: 20px;
+}
+.search>select{
+    float: left;
+    border: 0;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.search>span{
+    float: left;
+    line-height: 50px;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-right: 20px;
+    display: inline-block;
+}
+.search>input{
+    float: left;
+    height: 35px;
+    padding-left: 10px;
+    outline: none;
+    border: darkorange solid 1px;
+    margin-top: 6px;
+    font-size: 18px;
+}
+.search>.search-button{
+    margin-top: 0px;
+    font-size: 18px;
+    float: right;
+    margin-left: -1px;
+    height: 52px;
+    width: 100px;
+    border: none;
+    margin-right: -2px;
+    background: darkorange;
+    color: white;
+}
+.search>.search-button:active{
+    border: #4B4B4B solid 3px;
+}
+/**
+    --搜索栏 end--
+ */

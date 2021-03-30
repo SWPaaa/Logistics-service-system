@@ -2,7 +2,33 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with BOM">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/controller/User.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/CarStatusEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/CarTypeEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/GoodsTypeEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/PaymentMethodEnum.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/PriceWayEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/ServiceEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/SexEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/Enum/UserTypeEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/common/CommonErrorEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/common/CommonResponseEnum.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/common/CommonResult.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/common/RRException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/controller/AreaController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/dao/AreaDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/dao/UserDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/entity/UserEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserCarPageCondition.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserLoginCondition.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserRegisterCondition.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/dto/AreaDTO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/dto/UserCarPageDTO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/dto/UserDTO.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/service/AreaService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/service/UserService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/service/impl/AreaServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/service/impl/UserServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

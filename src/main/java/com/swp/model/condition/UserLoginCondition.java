@@ -1,4 +1,4 @@
-﻿package com.swp.model.condition;
+package com.swp.model.condition;
 
 import lombok.Data;
 

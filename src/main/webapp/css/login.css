@@ -1,0 +1,64 @@
+/* CSS Document */
+.back{
+	background: url("../images/login2.png") no-repeat;
+	width: 100%;
+	height: 700px;
+	background-size: cover; /*覆盖全屏*/
+}
+.YeMian{
+	background: url("../images/login.png") no-repeat;
+	width: 336px;
+	height: 280px;
+	margin-left: auto;
+	margin-right: auto;
+	background-size: cover; /*覆盖全屏*/
+	opacity: 0.9;
+	}
+.bj{
+	margin-left: 20px;
+	}
+.yfm{
+	display: block;
+	margin-top: 10px;
+	}
+.yfm,.mm{
+	color: #373737;
+	}
+.inputs{
+	padding-left: 10px;
+	box-shadow:0 0 6px #0000FF ;/*盒子阴影0，0是阴影的方向，5px是蔓延的距离*/
+	outline: none ;
+	width: 288px;
+	height: 32px;
+	border-radius:3px; 	
+	margin-bottom: 12PX;
+	margin-top: 8PX;
+	}
+.Login{
+	outline: none;/*取消轮廓,让点击的时候没有黑色边框轮廓*/
+	width: 300px;
+	height: 32PX;
+	border-radius: 3px;
+	border: 0px;
+	color: #fff;
+	background: #005ba8;
+	margin-top: 10px;
+	}
+.Login:hover{
+	background: #9E9E9E;
+}
+.register{
+	margin-left: 120px;
+	font-size: 16px;
+	color: #005ba8;
+	}
+.register:hover{
+	color: #9E9E9E;
+}
+.kuang{
+	margin-top: 32px;
+	color: #0D0D0D;
+	font-size: 12px;
+	}
+
+

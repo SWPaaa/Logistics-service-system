@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>小万物流服务信息平台</title>
+<meta name="Keywords" content="物流服务">
+<meta name="Description" content="小万物流服务信息平台门户网站">
+<link rel="stylesheet" href="css/public.css">
+<link rel="stylesheet" href="css/lss.css">
+<link rel="stylesheet" href="css/carousel.css">
+
+</head>
+<body>
+<!--welcome-->
+<div style="height: 30px;width: 100%;background: #f3f3f3;
+line-height:30px;color: black;text-align: center;font-size: 18px">
+	<p id="welcome_p"></p>
+</div>
+
+<!--通栏导航-->
+<div class="nav">
+	<!--nav内容-->
+	<div class="nav_content">
+		<!--logo-->
+		<div class="nav_logo">
+			<a href="#" title="小万物流服务信息平台">
+				<img src="http://localhost:8080/images/logo.png" width="440px" height="104px" alt="logo">
+				<p >小 万 物 流</p>
+			</a>
+		</div>
+		<!--logo end-->
+		<!--nav主题-->
+		<ul class="nav_ul" id="nav_ul">
+			<li>
+				<a href="#">
+					<span class="one">HOME</span>
+					<span class="two">首 页</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span class="one">物流资讯</span>
+					<span class="two">LOGISTICS</span>
+				</a>
+				<ul class="nav_erji">
+					<li><a href="javascript:void(0)">车辆查询</a></li>
+					<li><a href="javascript:void(0)">路线查询</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<span class="one">商品资讯</span>
+					<span class="two">COMMODITY</span>
+				</a>
+				<ul class="nav_erji">
+					<li><a href="javascript:void(0)">货物查询</a></li>
+					<li><a href="javascript:void(0)">路线查询</a></li>
+				</ul>
+			</li>
+			<li id="nav_li2">
+				<a href="#"  id="nav_cx">
+					<span class="one">企业资讯</span>
+					<span class="two">ENTERPRISE</span>
+				</a>
+				<ul class="nav_erji">
+					<li><a href="javascript:void(0)">物流企业</a></li>
+					<li><a href="javascript:void(0)">商品企业</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">
+					<span class="one">新闻中心</span>
+					<span class="two">NEWS</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span class="one">联系我们</span>
+					<span class="two">CONTACT</span>
+				</a>
+			</li>
+		</ul>
+		<!--nav主题 end-->
+	</div>
+	<!--nav内容 end-->
+</div>
+<!--通栏导航 end-->
+<!--搜索栏-->
+<div class="search">
+	<select id="search-select-one">
+		<option disabled="disabled" selected="selected">车型</option>
+		<option >全部</option>
+		<option value="0">半挂车</option>
+		<option value="1">普通车</option>
+		<option value="2">箱式车</option>
+	</select>
+	<select id="search-select-two">
+		<option disabled="disabled" selected="selected">付款方式</option>
+		<option >全部</option>
+		<option value="0">到付</option>
+		<option value="1">押金</option>
+		<option value="2">全款</option>
+	</select>
+	<span >起始地:</span>
+	<input type="text" id="search-open" list="search-open-list">
+	<span>目的地:</span>
+	<input type="text" id="search-end" list="search-open-list">
+	<!--给input增加下拉省市-->
+	<datalist id="search-open-list">
+		<select id="search-open-select">
+		</select>
+	</datalist>
+
+	<input type="button" class="search-button" value="搜索" onclick="on_search_button()">
+</div>
+<!--搜索栏 end-->
+<!--图片轮播-->
+<div class="pic">
+	<!--图片-->
+	<div class="pic_img">
+		<ul id="ul_img">
+			<li>
+				<a href="#">
+					<img src="images/img.5.png" width="1920px" height="600px">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/img.4.png " width="1920px" height="600px">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/img.6.png" width="1920px" height="600px">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/img.3.png" width="1920px" height="600px">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="images/img.7.png" width="1920px" height="600px">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!--图片 end-->
+	<!--跳转图标-->
+	<div class="tub" id="tubiao">
+		<a href="javascript:void(0)" index="0" class="bianse"></a>
+		<a href="javascript:void(0)" index="1"></a>
+		<a href="javascript:void(0)" index="2"></a>
+		<a href="javascript:void(0)" index="3"></a>
+		<a href="javascript:void(0)" index="4"></a>
+	</div>
+	<!--跳转图标 end-->
+</div>
+<!--图片轮播 end-->
+<!--主题背景图-->
+<div class="beij">
+	<div class="chang">
+		<img src="http://localhost:8080/images/home.png" width="16px" height="12px" alt="" class="home">
+		<ul class="beij_ul" id="beij_ul">
+			<li><a href="#">当前位置——首页——车辆展示</a></li>
+			<li><a href="#">当前位置——首页——企业文化</a></li>
+			<li><a href="#">当前位置——首页——领导致辞</a></li>
+			<li><a href="#">当前位置——首页——大事记</a></li>
+			<li><a href="#">当前位置——首页——荣誉资质</a></li>
+			<li><a href="#">当前位置——首页——联系我们</a></li>
+		</ul>
+		<ol class="beij_ol" id="beij_ol">
+			<li>
+				<a href="#" index="0">公司简介</a>
+				<p index="0"></p>
+			</li>
+			<li>
+				<a href="#" index="1">企业文化</a>
+				<p index="1"></p>
+			</li>
+			<li>
+				<a href="#" index="2">领导致辞</a>
+				<p index="2"></p>
+			</li>
+			<li>
+				<a href="#" index="3">大事记</a>
+				<p index="3"></p>
+			</li>
+			<li>
+				<a href="#" index="4">荣誉资质</a>
+				<p index="4"></p>
+			</li>
+			<li>
+				<a href="#" index="5">联系我们</a>
+				<p index="5"></p>
+			</li>
+		</ol>
+	</div>
+	<img class="yunduo" src="http://localhost:8080/images/yunduo.png" alt="">
+</div>
+<!--主题背景图 end-->
+<!--内容显示-->
+<div class="cont">
+	<!--主题-->
+	<div class="cont_zt">
+		<span>Welcome to Xiaowan Logistics</span>
+		<div class="cont_h1">
+			<h1 id="cont_h1_1">公司简介</h1>
+			<h1>企业文化</h1>
+			<h1>领导致辞</h1>
+			<h1>大事记</h1>
+			<h1>荣誉资质</h1>
+			<h1>联系我们</h1>
+		</div>
+		<p></p>
+	</div>
+	<!--主题 end-->
+	<!--内容-->
+	<div class="cont_nr">
+		<span> &nbsp; &nbsp; &nbsp; &nbsp; 吉林省吉瑞石油钻采工程有限公司成立于2009年1月，总投资1.5亿元，公司位于中国吉林省吉林市。</span>
+		<span> &nbsp; &nbsp; &nbsp; &nbsp; 现其中钻井公司有员工204人，其中高级工程师8人，工程师15人。主要从事石油钻采(包括定向井、丛式井、水平井、特殊工艺井、煤层气井、温泉井、地热井、地球物理勘探井)等多种井型的钻井施工。市场覆盖中石油、中石化、吉视传媒、美达房地产、长白山国际旅游度假区、大连等国内各大油气田及温泉旅游开发。</span>
+		<span> &nbsp; &nbsp; &nbsp; &nbsp; 公司以雄厚的实力和技术力量，相继承担了一系列科技含量高、风险难度大的钻井项目，得到了业内人士的一致好评及肯定！
+		</span>
+	</div>
+	<!--内容 end-->
+	<!--图片-->
+	<img src="http://localhost:8080/images/img_1.jpg" alt="" class="cont_img1">
+	<!--图片 end-->
+	<img src="http://localhost:8080/images/cont_tp.png" alt="" class="cont_img2">
+</div>
+<!--内容显示 end-->
+
+<!--办公环境展示-->
+<div class="huanj">
+	<h1>办公环境展示</h1>
+	<p></p>
+	<div class="huanj_img">
+		<a href="javascript:void(0)" class="huanj_1" id="huanj_1">
+			<img src="http://localhost:8080/images/huanjing1.jpg" alt="">
+			<span id="huanj_span">办公环境展示</span>
+			<p id="huanj_p1">办公环境展示</p>
+		</a>
+		<ul class="huanj_ul" id="huanj_ul">
+			<li>
+				<a href="javascript:void(0)" index="0" >
+					<img src="http://localhost:8080/images/huanjing2.jpg" alt="">
+					<span index="0" >办公环境展示</span>
+					<p index="0" >办公环境展示</p>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" index="1" >
+					<img src="http://localhost:8080/images/huanjing3.jpg" alt="">
+					<span index="1" >办公环境展示</span>
+					<p index="1" >办公环境展示</p>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" index="2" >
+					<img src="http://localhost:8080/images/huanjing4.jpg" alt="">
+					<span index="2" >办公环境展示</span>
+					<p index="2" >办公环境展示</p>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" index="3" >
+					<img src="http://localhost:8080/images/huanjing5.jpg" alt="">
+					<span index="3" >办公环境展示</span>
+					<p index="3" >办公环境展示</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--办公环境展示 end-->
+<!--企业员工培训-->
+<div class="peixun">
+	<h1>企业员工培训</h1>
+	<p></p>
+	<ul class="peixun_ul" id="peixun_ul">
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun1_2.png" alt="">
+				<img src="http://localhost:8080/images/peixun1.jpg" alt="" class="posi">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun2.png" alt="" class="bd">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun3_2.png" alt="">
+				<img src="http://localhost:8080/images/peixun3.jpg" alt="" class="posi">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun4.png" alt="" class="bd">
+			</a>
+		</li>
+		<li class="wu">
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun5.png" alt="" class="bd">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun6_2.png" alt="">
+				<img src="http://localhost:8080/images/peixun6.jpg" alt="" class="posi">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun7.png" alt="" class="bd">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/peixun8_2.png" alt="">
+				<img src="http://localhost:8080/images/peixun8.jpg" alt="" class="posi">
+			</a>
+		</li>
+	</ul>
+</div>
+<!--企业员工培训 end-->
+<!--精英团队-->
+<div class="tuandui">
+	<h1>精英团队</h1>
+	<p></p>
+	<ul class="tuandui_ul" id="tuandui_ul">
+		<li class="td_img"><img src="http://localhost:8080/images/tuandui1.png" alt=""></li>
+		<li class="td_img"><img src="http://localhost:8080/images/tuandui2.png" alt=""></li>
+		<li class="td_img"><img src="http://localhost:8080/images/tuandu3.png" alt=""></li>
+		<li class="wu">
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/tuandui4.jpg" alt="">
+				<p>加 入 我 们</p>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/tuandui5.jpg" alt="">
+				<p>加 入 我 们</p>
+			</a>
+		</li>		
+		<li>
+			<a href="javascript:void(0)">
+				<img src="http://localhost:8080/images/tuandui6.jpg" alt="">
+				<p>加 入 我 们</p>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<span>加入我们</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<span>加入我们</span>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">
+				<span>加入我们</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<!--精英团队 end-->
+<!--下标链接-->
+<div class="xb">
+	<div class="xb_nr">
+		<ul class="xb_ul">
+			<li><a href="javascript:void(0)">
+				<span class="xb_1">公司展示</span>
+				<span>公司简历</span>
+				<span>资质荣誉</span>
+				<span>领导致辞</span>
+				<span>企业文化</span>
+			</a></li>
+			<li><a href="javascript:void(0)">
+				<span class="xb_1">图片中心</span>
+				<span>厂容厂貌</span>
+			</a></li>
+			<li><a href="javascript:void(0)">
+				<span class="xb_1">最新咨讯</span>
+				<span>公司新闻</span>
+				<span>媒体报道</span>
+			</a></li>
+		</ul>
+		<ol class="xb_ol">
+			<li class="xb_ol_1">联系方式</li>
+			<li class="xb_ol_2">17784340244</li>
+			<li>公司地址：重庆市巴南区重庆工程学院小万物流服务公司</li>
+			<li>办公室：0432-66528710</li>
+			<li>销售部：0432-66528716</li>
+			<li>传 &nbsp; &nbsp;真：0432-66528716 &nbsp; 0432-66528710</li>
+		</ol>
+	</div>
+	<p>版权所有：重庆市巴南区重庆工程学院 </p>
+</div>
+<!--下标链接 end-->
+<!--支付宝，QQ，微信-->
+<a href="javascript:void(0)" class="weixin1" id="weixin1"><img src="http://localhost:8080/images/weixin.png" alt=""></a>
+<a href="javascript:void(0)" class="weixin2" id="weixin2"><img src="http://localhost:8080/images/weixin2.png" alt=""></a>
+
+<a href="javascript:void(0)" class="qq">
+	<img src="http://localhost:8080/images/qq.png" alt="">
+	<span>504240410</span>
+</a>
+
+<div class="rem0" id="rem0">
+	<div class="rem" id="rem">
+		<a href="javascript:void(0)" class="zfb"><img src="http://localhost:8080/images/zfb.png" alt=""></a>
+		<input type="button" value="X" id="shanchu">
+	</div>
+</div>
+<div class="saoma" id="saoma">
+	<img src="http://localhost:8080/images/zfb1.png" alt="" class="zfb1" id="zfb1">
+	<input type="button" value="X" id="shanchu2">
+</div>
+<!--支付宝，QQ，微信 end-->
+<script src="js/lss1.js"></script>
+<script type="text/javascript" src="js/web.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+	var welcome_p = document.getElementById("welcome_p");
+	welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

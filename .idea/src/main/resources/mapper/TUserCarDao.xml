@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.dao.TUserCarDao">
+
+    <resultMap id="BaseResultMap" type="mapper.entity.TUserCar">
+        <!--@Table t_user_car-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="carId" column="car_id" jdbcType="INTEGER"/>
+        <result property="areaCodeOriginal" column="area_code_original" jdbcType="VARCHAR"/>
+        <result property="areaCodeDestination" column="area_code_destination" jdbcType="VARCHAR"/>
+        <result property="data" column="data" jdbcType="TIMESTAMP"/>
+        <result property="passArea" column="pass_area" jdbcType="VARCHAR"/>
+        <result property="paymentMethod" column="payment_method" jdbcType="INTEGER"/>
+        <result property="service" column="service" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="goBack" column="go_back" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="price" column="price" jdbcType="OTHER"/>
+        <result property="priceWay" column="price_way" jdbcType="INTEGER"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, user_id, car_id, area_code_original, area_code_destination, data, pass_area, payment_method, service, status, go_back, type, price, price_way, is_delete
+        from logistics_service_system.t_user_car
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, user_id, car_id, area_code_original, area_code_destination, data, pass_area, payment_method, service, status, go_back, type, price, price_way, is_delete
+        from logistics_service_system.t_user_car
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, user_id, car_id, area_code_original, area_code_destination, data, pass_area, payment_method, service, status, go_back, type, price, price_way, is_delete
+        from logistics_service_system.t_user_car
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="carId != null">
+                and car_id = #{carId}
+            </if>
+            <if test="areaCodeOriginal != null and areaCodeOriginal != ''">
+                and area_code_original = #{areaCodeOriginal}
+            </if>
+            <if test="areaCodeDestination != null and areaCodeDestination != ''">
+                and area_code_destination = #{areaCodeDestination}
+            </if>
+            <if test="data != null">
+                and data = #{data}
+            </if>
+            <if test="passArea != null and passArea != ''">
+                and pass_area = #{passArea}
+            </if>
+            <if test="paymentMethod != null">
+                and payment_method = #{paymentMethod}
+            </if>
+            <if test="service != null">
+                and service = #{service}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="goBack != null">
+                and go_back = #{goBack}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="priceWay != null">
+                and price_way = #{priceWay}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into logistics_service_system.t_user_car(user_id, car_id, area_code_original, area_code_destination, data, pass_area, payment_method, service, status, go_back, type, price, price_way, is_delete)
+        values (#{userId}, #{carId}, #{areaCodeOriginal}, #{areaCodeDestination}, #{data}, #{passArea}, #{paymentMethod}, #{service}, #{status}, #{goBack}, #{type}, #{price}, #{priceWay}, #{isDelete})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update logistics_service_system.t_user_car
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="carId != null">
+                car_id = #{carId},
+            </if>
+            <if test="areaCodeOriginal != null and areaCodeOriginal != ''">
+                area_code_original = #{areaCodeOriginal},
+            </if>
+            <if test="areaCodeDestination != null and areaCodeDestination != ''">
+                area_code_destination = #{areaCodeDestination},
+            </if>
+            <if test="data != null">
+                data = #{data},
+            </if>
+            <if test="passArea != null and passArea != ''">
+                pass_area = #{passArea},
+            </if>
+            <if test="paymentMethod != null">
+                payment_method = #{paymentMethod},
+            </if>
+            <if test="service != null">
+                service = #{service},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="goBack != null">
+                go_back = #{goBack},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="priceWay != null">
+                price_way = #{priceWay},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from logistics_service_system.t_user_car where id = #{id}
+    </delete>
+
+</mapper>
