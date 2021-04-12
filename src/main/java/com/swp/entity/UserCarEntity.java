@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 @Data
 public class UserCarEntity implements Serializable {
-    private static final long serialVersionUID = 615674566156870646L;
+    private static final long serialVersionUID = 1L;
     
     private Long id;
     /**

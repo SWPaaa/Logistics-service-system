@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService {
         }else if(userDTO.getStatus().equals(UserStatusEnum.UNAPPROVE.value())){
             return new CommonResult(CommonErrorEnum.UNAPPROVE);
         }
+
         return CommonResult.ok(userDTO);
 
     }

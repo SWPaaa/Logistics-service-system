@@ -98,6 +98,16 @@ public class UserCarPageDTO implements Serializable {
      * 体积（立方米）
      */
     private Integer carBulk;
-
-
+    /**
+     * 公司电话
+     */
+    private String companyPhone;
+    /**
+     * 公司地址
+     */
+    private String companyAddress;
+    /**
+     * 类别（0物流需求方，1物流供应方，2管理员）
+     */
+    private Integer userType;
 }

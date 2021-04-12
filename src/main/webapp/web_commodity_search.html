@@ -1,0 +1,306 @@
+﻿<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>商品查询</title>
+    <meta name="Keywords" content="商品搜索">
+    <meta name="Description" content="小万物流服务信息平台门户网站">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/carousel.css">
+<style>
+    .search-commodity-data{
+        width: 900px;
+        margin: 0 auto;
+    }
+    .search-commodity-data-p{
+        margin-top: 20px;
+        background: #a7b3c8 ;
+        width: 900px;
+        height: 30px;
+    }
+    .search-commodity-data-p>span{
+        width: 180px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+        font-family: 方正粗黑宋简体;
+    }
+    .search-commodity-data>div{
+        width: 900px;
+        height: 35px;
+    }
+    .search-commodity-data>div:nth-child(odd){
+        background: #e0f4ed ;// 基数行设置背景色
+    }
+    .search-commodity-data>div>span{
+        width: 180px;
+        text-align: center;
+        display: inline-block;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        font-size: 16px;
+        font-family: 新宋体;
+        color: #4F4F4F;
+    }
+    .search-commodity-data>div:hover{
+        background: #cfc5f4;
+    }
+
+</style>
+</head>
+<body>
+<!--welcome-->
+<div style="height: 30px;width: 100%;
+line-height:30px;color: black;text-align: center;font-size: 18px">
+    <p id="welcome_p"></p>
+</div>
+
+<!--通栏导航-->
+<div class="nav">
+    <!--nav内容-->
+    <div class="nav_content">
+        <!--logo-->
+        <div class="nav_logo">
+            <a href="web.html" title="小万物流服务信息平台">
+                <img src="http://localhost:8080/images/logo.png" width="440px" height="104px" alt="logo">
+                <p >小 万 物 流</p>
+            </a>
+        </div>
+        <!--logo end-->
+        <!--nav主题-->
+        <ul class="nav_ul" id="nav_ul">
+            <li>
+                <a href="web.html">
+                    <span class="one">HOME</span>
+                    <span class="two">首 页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">物流资讯</span>
+                    <span class="two">LOGISTICS</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_logistics_search.html">车辆查询</a></li>
+                    <li><a href="web_logistics_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">商品资讯</span>
+                    <span class="two">COMMODITY</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_commodity_search.html">货物查询</a></li>
+                    <li><a href="web_commodity_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li id="nav_li2">
+                <a href="#"  id="nav_cx">
+                    <span class="one">企业资讯</span>
+                    <span class="two">ENTERPRISE</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="javascript:void(0)">物流企业</a></li>
+                    <li><a href="javascript:void(0)">商品企业</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">新闻中心</span>
+                    <span class="two">NEWS</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">联系我们</span>
+                    <span class="two">CONTACT</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="#xb">联系我们</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">个人中心</span>
+                    <span class="two">PERSONAGE</span>
+                </a>
+                <ul class="nav_erji" id="personal-center">
+
+                </ul>
+            </li>
+        </ul>
+        <!--nav主题 end-->
+    </div>
+    <!--nav内容 end-->
+</div>
+<!--通栏导航 end-->
+
+
+
+<!--搜索栏-->
+<div class="search">
+    <select id="search-commodity-select" style="width: 130px;">
+        <option disabled="disabled" selected="selected">货物类型</option>
+        <option value="0">普通用品</option>
+        <option value="1">危险品</option>
+        <option value="2">冷冻冷藏品</option>
+        <option value="3">电器用品</option>
+        <option value="4">电询</option>
+    </select>
+    <span >起始地:</span>
+    <input type="text" id="search-commodity-select-open" list="search-open-list">
+    <span>目的地:</span>
+    <input type="text" id="search-commodity-select-end" list="search-open-list">
+    <!--给input增加下拉省市-->
+    <datalist id="search-open-list">
+        <select id="search-open-select">
+        </select>
+    </datalist>
+
+    <input type="button" class="search-button" value="搜索" onclick="commodity_search_button()">
+</div>
+<!--搜索栏 end-->
+<!--搜索数据展示-->
+
+<div class="search-commodity-data" id="search-commodity-select-data" style="height: 1000px">
+    <p class="search-commodity-data-p">
+        <span>商品类型</span>
+        <span>起始地</span>
+        <span>目的地</span>
+        <span>货运状态</span>
+        <span>截止日期</span>
+    </p>
+
+</div>
+
+<!--搜索数据展示 end-->
+
+
+
+<!--下标链接-->
+<div class="xb" id="xb">
+    <div class="xb_nr">
+        <ul class="xb_ul">
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">公司展示</span>
+                <span>公司简历</span>
+                <span>资质荣誉</span>
+                <span>领导致辞</span>
+                <span>企业文化</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">图片中心</span>
+                <span>厂容厂貌</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">最新咨讯</span>
+                <span>公司新闻</span>
+                <span>媒体报道</span>
+            </a></li>
+        </ul>
+        <ol class="xb_ol">
+            <li class="xb_ol_1">联系方式</li>
+            <li class="xb_ol_2">17784340244</li>
+            <li>公司地址：重庆市巴南区重庆工程学院小万物流服务公司</li>
+            <li>办公室：0432-66528710</li>
+            <li>销售部：0432-66528716</li>
+            <li>传 &nbsp; &nbsp;真：0432-66528716 &nbsp; 0432-66528710</li>
+        </ol>
+    </div>
+    <p>版权所有：重庆市巴南区重庆工程学院 </p>
+</div>
+<!--下标链接 end-->
+
+<script src="js/lss1.js"></script>
+<script type="text/javascript" src="js/web.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    var welcome_p = document.getElementById("welcome_p");
+    welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
+
+    let commodityType = document.getElementById("search-commodity-select").value;
+    let areaNameOriginal = document.getElementById("search-commodity-select-open");
+    let areaNameDestination = document.getElementById("search-commodity-select-end");
+
+    function commodity_search_button(){
+console.info(commodityType)
+        if(commodityType == "货物类型"){
+            commodityType = null;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: "/api/v1/user/commodity/page",
+            data: {
+                commodityType:commodityType,
+                areaNameOriginal:areaNameOriginal.value,
+                areaNameDestination:areaNameDestination.value,
+            },
+            async: false,
+            success: function (result) {
+                if (result.code == 0) {
+                    var html = '<p class="search-commodity-data-p">\n' +
+                        '        <span>商品类型</span>\n' +
+                        '        <span>起始地</span>\n' +
+                        '        <span>目的地</span>\n' +
+                        '        <span>货运状态</span>\n' +
+                        '        <span>截止日期</span>\n' +
+                        '    </p>';
+                    for (let i=0; i<result.data.length; i++){
+                        var data = result.data[i];
+                        var commodityType = commodityTypeEnum[data.commodityType];
+                        var commodityStatus = commodityStatusEnum[data.status];
+                        html += "<div class='search-commodity-select-data-div'>\n" +
+                            "        <span>" +commodityType+ "</span>\n" +
+                            "        <span>" +data.areaNameOriginal+ "</span>\n" +
+                            "        <span>" +data.areaNameDestination+ "</span>\n" +
+                            "        <span>" +commodityStatus+ "</span>\n" +
+                            "        <span>" +(new Date(parseInt(data.endDate))).toLocaleDateString()+ "</span>\n" +
+                            "    </div>"
+                    }
+                    document.getElementById("search-commodity-select-data").innerHTML = html;
+                    // 赋值index
+                    let div = document.getElementsByClassName("search-commodity-select-data-div");
+                    for(let i=0; i<div.length; i++){
+                        div[i].index = i;
+                    }
+                } else {
+                    alert(result.msg);
+                }
+            },
+            error: function (result) {
+                console.info(result)
+                //window.location.href = "error404.html";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

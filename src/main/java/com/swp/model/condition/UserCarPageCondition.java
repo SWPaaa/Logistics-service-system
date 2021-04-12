@@ -4,6 +4,8 @@ import com.swp.Enum.CarTypeEnum;
 import com.swp.Enum.PaymentMethodEnum;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author wanping.sheng
  * @Filename UserCarPageCondition
@@ -15,7 +17,8 @@ import lombok.Data;
  * <li>Content: create</li>
  */
 @Data
-public class UserCarPageCondition {
+public class UserCarPageCondition implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 车辆类型
      */

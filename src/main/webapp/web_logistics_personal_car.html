@@ -1,0 +1,239 @@
+﻿<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>车辆管理</title>
+    <meta name="Keywords" content="物流服务">
+    <meta name="Description" content="小万物流服务信息平台门户网站">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/carousel.css">
+</head>
+<body>
+<!--welcome-->
+<div style="height: 30px;width: 100%;
+line-height:30px;color: black;text-align: center;font-size: 18px">
+    <p id="welcome_p"></p>
+</div>
+
+<!--通栏导航-->
+<div class="nav">
+    <!--nav内容-->
+    <div class="nav_content">
+        <!--logo-->
+        <div class="nav_logo">
+            <a href="web.html" title="小万物流服务信息平台">
+                <img src="http://localhost:8080/images/logo.png" width="440px" height="104px" alt="logo">
+                <p >小 万 物 流</p>
+            </a>
+        </div>
+        <!--logo end-->
+        <!--nav主题-->
+        <ul class="nav_ul" id="nav_ul">
+            <li>
+                <a href="web.html">
+                    <span class="one">HOME</span>
+                    <span class="two">首 页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">物流资讯</span>
+                    <span class="two">LOGISTICS</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_logistics_search.html">车辆查询</a></li>
+                    <li><a href="web_logistics_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">商品资讯</span>
+                    <span class="two">COMMODITY</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_commodity_search.html">货物查询</a></li>
+                    <li><a href="web_commodity_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li id="nav_li2">
+                <a href="#"  id="nav_cx">
+                    <span class="one">企业资讯</span>
+                    <span class="two">ENTERPRISE</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="javascript:void(0)">物流企业</a></li>
+                    <li><a href="javascript:void(0)">商品企业</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">新闻中心</span>
+                    <span class="two">NEWS</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">联系我们</span>
+                    <span class="two">CONTACT</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="#xb">联系我们</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">个人中心</span>
+                    <span class="two">PERSONAGE</span>
+                </a>
+                <ul class="nav_erji" id="personal-center">
+
+                </ul>
+            </li>
+        </ul>
+        <!--nav主题 end-->
+    </div>
+    <!--nav内容 end-->
+</div>
+<!--通栏导航 end-->
+
+
+<h4 style="margin-left: 30%;margin-top: 30px">当前位置：个人中心→车辆管理→新增车辆</h4>
+<h5 style="margin-left: 30%;margin-bottom: 50px"> ----------------------------------------------------------------------------------------------------</h5>
+<div style="height: 1000px;min-width: 900px;margin-left: 40%;">
+    <form id="logistics3" contentType = multipart/form-data >
+
+        <div style="margin-top: 10px">
+            车辆编号：
+            <span style="color: red">*</span>
+            <input type="text" id="code" name="code">
+        </div>
+        <div>
+            车辆名称：
+            <span style="color: red">*</span>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div style="margin-top: 10px">
+            车辆类型：
+            <span style="color: red">*</span>
+            <select name="type" id="type">
+                <option value="0">半挂车</option>
+                <option value="1">普通车</option>
+                <option value="2">箱式车</option>
+            </select>
+        </div>
+
+        <div style="margin-top: 10px">
+            车辆载重：
+            <span style="color: red">*</span>
+            <input type="text" id="load" name="load"> /吨
+        </div>
+
+        <div style="margin-top: 10px">
+            车辆体积：
+            <span style="color: red">*</span>
+            <input type="text" id="bulk" name="bulk"> /立方米
+        </div>
+
+        <input style="margin-top: 30px;margin-left: 20px;width: 100px;
+height: 30px" type="button" onclick="btnClick3()" value="提 交" class="reg_btn">
+
+        </table>
+    </form>
+</div>
+
+
+<!--下标链接-->
+<div class="xb" id="xb">
+    <div class="xb_nr">
+        <ul class="xb_ul">
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">公司展示</span>
+                <span>公司简历</span>
+                <span>资质荣誉</span>
+                <span>领导致辞</span>
+                <span>企业文化</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">图片中心</span>
+                <span>厂容厂貌</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">最新咨讯</span>
+                <span>公司新闻</span>
+                <span>媒体报道</span>
+            </a></li>
+        </ul>
+        <ol class="xb_ol">
+            <li class="xb_ol_1">联系方式</li>
+            <li class="xb_ol_2">17784340244</li>
+            <li>公司地址：重庆市巴南区重庆工程学院小万物流服务公司</li>
+            <li>办公室：0432-66528710</li>
+            <li>销售部：0432-66528716</li>
+            <li>传 &nbsp; &nbsp;真：0432-66528716 &nbsp; 0432-66528710</li>
+        </ol>
+    </div>
+    <p>版权所有：重庆市巴南区重庆工程学院 </p>
+</div>
+<!--下标链接 end-->
+
+<script src="js/lss1.js"></script>
+<script type="text/javascript" src="js/web.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    var welcome_p = document.getElementById("welcome_p");
+    welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
+
+    /**
+     *  2.提交
+     **/
+
+    function btnClick3() {
+        var form = document.getElementById("logistics3");
+        var formData = {
+            "code" : form.code.value,
+            "name" : form.name.value,
+            "type" : form.type.value,
+            "load" : form.load.value,
+            "bulk" : form.bulk.value,
+            "userId" : window.localStorage.getItem("userId")
+        }
+        $.ajax({
+            type: "POST",
+            url: "/api/v1/car",
+            contentType: "application/json;charset=utf-8",
+            data:JSON.stringify(formData),
+            dataType: "json",
+            success:function (message) {
+                alert("提交成功");
+            },
+            error:function (message) {
+                alert("提交失败");
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

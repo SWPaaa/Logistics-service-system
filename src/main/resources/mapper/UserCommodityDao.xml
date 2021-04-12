@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.swp.dao.UserCommodityDao">
+    <!--搜索发布的运输工程-->
+    <select id="page" resultType="com.swp.model.dto.UserCommodityPageDTO">
+        SELECT
+            a.commodity_type AS commodityType,
+            a.area_name_original AS areaNameOriginal,
+            a.area_name_destination AS areaNameDestination,
+            a.end_date AS endDate,
+            a.service,
+            a.status,
+            a.price,
+            b.phone,
+            b.real_name AS realName,
+            b.company_phone AS companyPhone,
+            b.company_address AS companyAddress,
+            b.type AS userType
+        FROM
+            t_user_commodity AS a LEFT JOIN t_user AS b
+            ON a.user_id = b.id
+        WHERE
+            a.is_delete=0
+            <if test="commodityType != null">
+                AND a.commodity_type = #{commodityType}
+            </if>
+            <if test="areaNameOriginal != null and areaNameOriginal != ''">
+                AND a.area_name_original = #{areaCodeOriginal}
+            </if>
+            <if test="areaNameDestination != null and areaNameDestination != ''">
+                AND a.area_name_destination = #{areaNameDestination}
+            </if>
+    </select>
+
+<!--    <insert id="save">-->
+<!--        INSERT INTO-->
+<!--            t_user_car(car_id,-->
+<!--                       user_id,-->
+<!--                       area_code_original,-->
+<!--                       area_code_destination,-->
+<!--                       area_name_original,-->
+<!--                       area_name_destination,-->
+<!--                       data,-->
+<!--                       pass_area,-->
+<!--                       payment_method,-->
+<!--                       service,-->
+<!--                       status,-->
+<!--                       go_back,-->
+<!--                       type,-->
+<!--                       price,-->
+<!--                       price_way-->
+<!--                       )-->
+<!--        VALUES (#{carId},#{userId},#{areaCodeOriginal},#{areaCodeDestination},-->
+<!--                #{areaNameOriginal},#{areaNameDestination},-->
+<!--                #{data},#{passArea},#{paymentMethod},#{service},-->
+<!--                #{status},#{goBack},#{type},#{price},#{priceWay})-->
+<!--    </insert>-->
+</mapper>

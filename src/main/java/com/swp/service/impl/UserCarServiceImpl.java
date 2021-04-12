@@ -4,6 +4,7 @@ import com.swp.Enum.PaymentMethodEnum;
 import com.swp.dao.AreaDao;
 import com.swp.dao.UserCarDao;
 import com.swp.model.condition.UserCarPageCondition;
+import com.swp.model.condition.UserCarSaveCondition;
 import com.swp.model.dto.AreaDTO;
 import com.swp.model.dto.UserCarPageDTO;
 import com.swp.service.UserCarService;
@@ -33,5 +34,16 @@ public class UserCarServiceImpl implements UserCarService {
     @Override
     public List<UserCarPageDTO> page(UserCarPageCondition condition) {
         return userCarDao.page(condition);
+    }
+
+    /**
+     * 保存
+     * @param condition
+     */
+    @Override
+    public void save(UserCarSaveCondition condition) {
+        condition.setAreaNameDestination(areaDao.getByCode(condition.getAreaCodeDestination()).getName());
+        condition.setAreaNameOriginal(areaDao.getByCode(condition.getAreaCodeOriginal()).getName());
+        userCarDao.save(condition);
     }
 }

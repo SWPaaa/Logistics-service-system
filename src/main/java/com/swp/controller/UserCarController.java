@@ -2,6 +2,7 @@ package com.swp.controller;
 
 import com.swp.common.CommonResult;
 import com.swp.model.condition.UserCarPageCondition;
+import com.swp.model.condition.UserCarSaveCondition;
 import com.swp.service.UserCarService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,17 @@ public class UserCarController {
     @GetMapping("/page")
     public CommonResult page(UserCarPageCondition condition) {
         return CommonResult.ok(userCarService.page(condition));
+    }
+
+    /**
+     * 保存
+     * @param condition
+     * @return
+     */
+    @PostMapping
+    public CommonResult save(@RequestBody(required = false) UserCarSaveCondition condition){
+        userCarService.save(condition);
+        return CommonResult.ok();
     }
 
 }

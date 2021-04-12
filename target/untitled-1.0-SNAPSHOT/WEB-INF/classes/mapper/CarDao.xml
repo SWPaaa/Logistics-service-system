@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.swp.dao.CarDao">
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultType="com.swp.model.dto.CarDTO">
+  select
+  id,code,name,type,`load`,bulk,user_id AS userId
+  from t_car
+  where
+      is_delete = 0
+    <if test="userId != null">
+       AND user_id = #{userId}
+  </if>
+</select>
+
+    <insert id="save">
+        INSERT INTO
+            t_car(code,name,type,`load`,bulk,user_id)
+        values
+               (
+                #{code},#{name},#{type},
+                #{load},#{bulk},#{userId}
+                )
+    </insert>
+</mapper>

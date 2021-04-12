@@ -19,7 +19,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/dao/AreaDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/dao/UserDao.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/entity/UserEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/CarSaveCondition.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserCarPageCondition.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserCarSaveCondition.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserLoginCondition.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/condition/UserRegisterCondition.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/swp/model/dto/AreaDTO.java" charset="UTF-8" />

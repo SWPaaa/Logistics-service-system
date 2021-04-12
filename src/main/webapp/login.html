@@ -97,16 +97,18 @@
 				success: function (result) {
 					if (result.code == 0) {
 						alert("登陆成功")
-						//window.localStorage.setItem("username", username.value);
-						//window.localStorage.setItem("name", result.data.name);
-						//window.location.href = 'web.html';
-						window.location.href = "web.html?username="+username.value+"&name="+result.data.name;
+						window.localStorage.setItem("userId", result.data.id);
+						window.localStorage.setItem("userType", result.data.type);
+						window.localStorage.setItem("username", username.value);
+						window.localStorage.setItem("name", result.data.name);
+						window.location.href = 'web.html';
+						//window.location.href = "web.html?username="+username.value+"&name="+result.data.name;
 					} else {
 						alert(result.msg);
 					}
 				},
 				error: function () {
-					window.location.href = "error404.jsp";
+					window.location.href = "error404-1.html"
 				}
 			});
 		}

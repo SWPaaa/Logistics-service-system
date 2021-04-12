@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2021-03-12 11:34:03
  */
 @RestController
-@RequestMapping(value = "/roll", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/api/v1/roll", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class RollController {
     private static final Log logger = LogFactory.getLog(UserController.class);
 

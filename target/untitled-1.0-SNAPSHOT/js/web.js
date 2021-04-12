@@ -4,7 +4,7 @@ var tubiao = document.getElementById("tubiao");
 var a = tubiao.getElementsByTagName("a");
 var span = ul_img.getElementsByTagName("span");
 
-for(var i=0;i<=a.length-1;i++){
+for(let i=0;i<=a.length-1;i++){
     a[i].onmouseover=function(){
 		for(var y=0;y<=a.length-1;y++){
 			a[y].className="";/*这里不能用this，因为隔了一个for循环*/
@@ -19,7 +19,7 @@ for(var i=0;i<=a.length-1;i++){
 
 }
 
-var i = 1;
+let i = 1;
 var fun1=function() {
 	for (var y = 0; y <= a.length - 1; y++) {
 		a[y].className = "";/*这里不能用this，因为隔了一个for循环*/

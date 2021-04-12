@@ -2,6 +2,7 @@ package com.swp.service;
 
 
 import com.swp.model.condition.UserCarPageCondition;
+import com.swp.model.condition.UserCarSaveCondition;
 import com.swp.model.dto.UserCarPageDTO;
 
 import java.util.List;
@@ -19,4 +20,10 @@ public interface UserCarService {
      * @return
      */
     List<UserCarPageDTO> page(UserCarPageCondition condition);
+
+    /**
+     * 保存
+     * @param condition
+     */
+    void save(UserCarSaveCondition condition);
 }

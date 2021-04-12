@@ -1,0 +1,250 @@
+﻿<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>物流信息详情</title>
+    <meta name="Keywords" content="物流服务">
+    <meta name="Description" content="小万物流服务信息平台门户网站">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/carousel.css">
+
+</head>
+<body>
+<!--welcome-->
+<div style="height: 30px;width: 100%;
+line-height:30px;color: black;text-align: center;font-size: 18px">
+    <p id="welcome_p"></p>
+</div>
+
+<!--通栏导航-->
+<div class="nav">
+    <!--nav内容-->
+    <div class="nav_content">
+        <!--logo-->
+        <div class="nav_logo">
+            <a href="web.html" title="小万物流服务信息平台">
+                <img src="http://localhost:8080/images/logo.png" width="440px" height="104px" alt="logo">
+                <p >小 万 物 流</p>
+            </a>
+        </div>
+        <!--logo end-->
+        <!--nav主题-->
+        <ul class="nav_ul" id="nav_ul">
+            <li>
+                <a href="web.html">
+                    <span class="one">HOME</span>
+                    <span class="two">首 页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">物流资讯</span>
+                    <span class="two">LOGISTICS</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_logistics_search.html">车辆查询</a></li>
+                    <li><a href="web_logistics_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">商品资讯</span>
+                    <span class="two">COMMODITY</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="web_commodity_search.html">货物查询</a></li>
+                    <li><a href="web_commodity_search.html">路线查询</a></li>
+                </ul>
+            </li>
+            <li id="nav_li2">
+                <a href="#"  id="nav_cx">
+                    <span class="one">企业资讯</span>
+                    <span class="two">ENTERPRISE</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="javascript:void(0)">物流企业</a></li>
+                    <li><a href="javascript:void(0)">商品企业</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">新闻中心</span>
+                    <span class="two">NEWS</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">联系我们</span>
+                    <span class="two">CONTACT</span>
+                </a>
+                <ul class="nav_erji">
+                    <li><a href="#xb">联系我们</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="one">个人中心</span>
+                    <span class="two">PERSONAGE</span>
+                </a>
+                <ul class="nav_erji" id="personal-center">
+
+                </ul>
+            </li>
+        </ul>
+        <!--nav主题 end-->
+    </div>
+    <!--nav内容 end-->
+</div>
+<!--通栏导航 end-->
+
+
+</div>
+<!--搜索数据展示 end-->
+<!--物流运输详细信息-->
+<div style="margin-top: 50px;margin-bottom:50px;margin-left: 20%; width: 1150px;height: 340px">
+	<div style="width: 800px;float: left;border: #9E9E9E solid 1px;height: 340px ">
+		<div class="search-detail">
+			<div style="text-align: center;">
+				<p style="color: #005ba8;font-size: 22px;margin-top: 20px" id="search-detail-1">重庆-厦门</p>
+				<p style="font-size: 20px;font-family: 新宋体;margin-bottom: 30px">运输价格：
+					<span style="color: red;font-size: 22px;font-family: 微軟正黑體" id="search-detail-3">3400</span>
+					<span id="search-detail-4">元/车</span>
+				</p>
+			</div>
+			<p>
+				<span id="search-detail-5">起始地：重庆</span>
+				<span id="search-detail-6">目的地：厦门</span>
+				<span id="search-detail-7">截止日期：2020-10-11</span>
+			</p>
+			<p class="search-detail-p">-----------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<p>
+				<span id="search-detail-8">途经区域：重庆</span>
+				<span id="search-detail-9">付款方式：到付</span>
+				<span id="search-detail-10">提供上门服务：是</span>
+			</p>
+			<p class="search-detail-p">-----------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<p>
+				<span id="search-detail-11">车辆类型：高栏车</span>
+				<span id="search-detail-12">载重：20吨</span>
+				<span id="search-detail-13">体积：60.00立方米</span>
+			</p>
+			<p class="search-detail-p">-----------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<p>
+				<span id="search-detail-14">货物类型：电询</span>
+				<span id="search-detail-15">货物状态：待货</span>
+				<span id="search-detail-16">返程车：是</span>
+			</p>
+			<p class="search-detail-p">-----------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<div class="search-detail-div" >
+				<img src="images/tel.png">
+				<span id="search-detail-17">178641651</span>
+				<span style="margin-left: 10px" id="search-detail-18">李静</span>
+			</div>
+		</div>
+	</div>
+	<div class="search-detail2">
+		<h2 style="font-family: 楷体;margin-top: 40px;text-align: center" id="search-detail-19">重庆正泰软件有限公司</h2>
+		<p>联系人&nbsp;&nbsp;&nbsp;：&nbsp;&nbsp;<span style="color: orange;font-family: 方正粗黑宋简体;font-size: 20px" id="search-detail-20">正泰</span></p>
+		<p>手&nbsp;机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<span id="search-detail-21">17784342598</span></p>
+		<p>公司电话：<span id="search-detail-22">023-55756595</span></p>
+		<p>公司地址：<span id="search-detail-23">重庆市渝北区泰山大道96号</span></p>
+	</div>
+</div>
+<!--物流运输详细信息 end-->
+
+
+
+<!--下标链接-->
+<div class="xb" id="xb">
+    <div class="xb_nr">
+        <ul class="xb_ul">
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">公司展示</span>
+                <span>公司简历</span>
+                <span>资质荣誉</span>
+                <span>领导致辞</span>
+                <span>企业文化</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">图片中心</span>
+                <span>厂容厂貌</span>
+            </a></li>
+            <li><a href="javascript:void(0)">
+                <span class="xb_1">最新咨讯</span>
+                <span>公司新闻</span>
+                <span>媒体报道</span>
+            </a></li>
+        </ul>
+        <ol class="xb_ol">
+            <li class="xb_ol_1">联系方式</li>
+            <li class="xb_ol_2">17784340244</li>
+            <li>公司地址：重庆市巴南区重庆工程学院小万物流服务公司</li>
+            <li>办公室：0432-66528710</li>
+            <li>销售部：0432-66528716</li>
+            <li>传 &nbsp; &nbsp;真：0432-66528716 &nbsp; 0432-66528710</li>
+        </ol>
+    </div>
+    <p>版权所有：重庆市巴南区重庆工程学院 </p>
+</div>
+<!--下标链接 end-->
+
+<script src="js/lss1.js"></script>
+<script type="text/javascript" src="js/web.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/jquery.js"></script>
+<script th:inline="javascript">
+    $("#search-detail-1").text(window.localStorage.getItem("areaNameOriginal")+"-"+window.localStorage.getItem("areaNameDestination"));
+    $("#search-detail-3").text(window.localStorage.getItem("price"));
+    $("#search-detail-4").text(priceWayEnum[window.localStorage.getItem("passArea")]);
+    $("#search-detail-5").text("起始地："+window.localStorage.getItem("areaNameOriginal"));
+    $("#search-detail-6").text("目的地："+window.localStorage.getItem("areaNameDestination"));
+    $("#search-detail-7").text("截止日期："+(new Date(parseInt(window.localStorage.getItem("data")))).toLocaleDateString());
+    $("#search-detail-8").text("途经区域："+window.localStorage.getItem("passArea"));
+    $("#search-detail-9").text("付款方式："+paymentMethodEnum[window.localStorage.getItem("paymentMethod")]);
+    $("#search-detail-10").text("提供上门服务："+whetherEnum[window.localStorage.getItem("service")]);
+    $("#search-detail-11").text("车辆类型："+carTypeEnum[window.localStorage.getItem("carType")]);
+    $("#search-detail-12").text("载重："+window.localStorage.getItem("carLoad")+"吨");
+    $("#search-detail-13").text("体积："+window.localStorage.getItem("carBulk")+"立方米");
+    $("#search-detail-14").text("货物类型："+typeEnum[window.localStorage.getItem("type")]);
+    $("#search-detail-15").text("货物状态："+statusEnum[window.localStorage.getItem("status")]);
+    $("#search-detail-16").text("返程车："+whetherEnum[window.localStorage.getItem("goBack")]);
+    $("#search-detail-17").text(window.localStorage.getItem("phone"));
+    $("#search-detail-18").text(window.localStorage.getItem("realName"));
+    $("#search-detail-19").text(window.localStorage.getItem("companyName"));
+    $("#search-detail-20").text(window.localStorage.getItem("realName"));
+    $("#search-detail-21").text(window.localStorage.getItem("phone"));
+    $("#search-detail-22").text(window.localStorage.getItem("companyPhone"));
+    $("#search-detail-23").text(window.localStorage.getItem("companyAddress"));
+
+
+
+
+    var welcome_p = document.getElementById("welcome_p");
+    welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

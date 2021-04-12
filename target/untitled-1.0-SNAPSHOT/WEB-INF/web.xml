@@ -10,12 +10,12 @@
   <!-- 404错误拦截,这段配置代码最好放到最前面，在前端控制器拦截之前处理 -->
   <error-page>
     <error-code>404</error-code>
-    <location>/error404.jsp</location>
+    <location>/error404-1.html</location>
   </error-page>
   <!-- 500错误拦截 -->
   <error-page>
     <error-code>500</error-code>
-    <location>/error500.jsp</location>
+    <location>/error500.html</location>
   </error-page>
 
   <!-- 配置前端控制器-->

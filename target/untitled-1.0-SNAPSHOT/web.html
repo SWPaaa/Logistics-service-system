@@ -13,7 +13,7 @@
 </head>
 <body>
 <!--welcome-->
-<div style="height: 30px;width: 100%;background: #f3f3f3;
+<div style="height: 30px;width: 100%;
 line-height:30px;color: black;text-align: center;font-size: 18px">
 	<p id="welcome_p"></p>
 </div>
@@ -24,7 +24,7 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 	<div class="nav_content">
 		<!--logo-->
 		<div class="nav_logo">
-			<a href="#" title="小万物流服务信息平台">
+			<a href="web.html" title="小万物流服务信息平台">
 				<img src="http://localhost:8080/images/logo.png" width="440px" height="104px" alt="logo">
 				<p >小 万 物 流</p>
 			</a>
@@ -33,7 +33,7 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 		<!--nav主题-->
 		<ul class="nav_ul" id="nav_ul">
 			<li>
-				<a href="#">
+				<a href="web.html">
 					<span class="one">HOME</span>
 					<span class="two">首 页</span>
 				</a>
@@ -44,8 +44,8 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 					<span class="two">LOGISTICS</span>
 				</a>
 				<ul class="nav_erji">
-					<li><a href="javascript:void(0)">车辆查询</a></li>
-					<li><a href="javascript:void(0)">路线查询</a></li>
+					<li><a href="web_logistics_search.html">车辆查询</a></li>
+					<li><a href="web_logistics_search.html">路线查询</a></li>
 				</ul>
 			</li>
 			<li>
@@ -54,8 +54,8 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 					<span class="two">COMMODITY</span>
 				</a>
 				<ul class="nav_erji">
-					<li><a href="javascript:void(0)">货物查询</a></li>
-					<li><a href="javascript:void(0)">路线查询</a></li>
+					<li><a href="web_commodity_search.html">货物查询</a></li>
+					<li><a href="web_commodity_search.html">路线查询</a></li>
 				</ul>
 			</li>
 			<li id="nav_li2">
@@ -79,6 +79,18 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 					<span class="one">联系我们</span>
 					<span class="two">CONTACT</span>
 				</a>
+				<ul class="nav_erji">
+					<li><a href="#xb">联系我们</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#xb">
+					<span class="one">个人中心</span>
+					<span class="two">PERSONAGE</span>
+				</a>
+				<ul class="nav_erji" id="personal-center">
+
+				</ul>
 			</li>
 		</ul>
 		<!--nav主题 end-->
@@ -86,35 +98,8 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 	<!--nav内容 end-->
 </div>
 <!--通栏导航 end-->
-<!--搜索栏-->
-<div class="search">
-	<select id="search-select-one">
-		<option disabled="disabled" selected="selected">车型</option>
-		<option >全部</option>
-		<option value="0">半挂车</option>
-		<option value="1">普通车</option>
-		<option value="2">箱式车</option>
-	</select>
-	<select id="search-select-two">
-		<option disabled="disabled" selected="selected">付款方式</option>
-		<option >全部</option>
-		<option value="0">到付</option>
-		<option value="1">押金</option>
-		<option value="2">全款</option>
-	</select>
-	<span >起始地:</span>
-	<input type="text" id="search-open" list="search-open-list">
-	<span>目的地:</span>
-	<input type="text" id="search-end" list="search-open-list">
-	<!--给input增加下拉省市-->
-	<datalist id="search-open-list">
-		<select id="search-open-select">
-		</select>
-	</datalist>
 
-	<input type="button" class="search-button" value="搜索" onclick="on_search_button()">
-</div>
-<!--搜索栏 end-->
+
 <!--图片轮播-->
 <div class="pic">
 	<!--图片-->
@@ -164,130 +149,270 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 	<!--跳转图标 end-->
 </div>
 <!--图片轮播 end-->
+
+
+<!--&lt;!&ndash;搜索栏&ndash;&gt;-->
+<!--<div class="search">-->
+<!--	<select id="search-select-one">-->
+<!--		<option disabled="disabled" selected="selected">车型</option>-->
+<!--		<option >全部</option>-->
+<!--		<option value="0">半挂车</option>-->
+<!--		<option value="1">普通车</option>-->
+<!--		<option value="2">箱式车</option>-->
+<!--	</select>-->
+<!--	<select id="search-select-two">-->
+<!--		<option disabled="disabled" selected="selected">付款方式</option>-->
+<!--		<option >全部</option>-->
+<!--		<option value="0">到付</option>-->
+<!--		<option value="1">押金</option>-->
+<!--		<option value="2">全款</option>-->
+<!--	</select>-->
+<!--	<span >起始地:</span>-->
+<!--	<input type="text" id="search-open" list="search-open-list">-->
+<!--	<span>目的地:</span>-->
+<!--	<input type="text" id="search-end" list="search-open-list">-->
+<!--	&lt;!&ndash;给input增加下拉省市&ndash;&gt;-->
+<!--	<datalist id="search-open-list">-->
+<!--		<select id="search-open-select">-->
+<!--		</select>-->
+<!--	</datalist>-->
+
+<!--	<input type="button" class="search-button" value="搜索" onclick="on_search_button()">-->
+<!--</div>-->
+<!--&lt;!&ndash;搜索栏 end&ndash;&gt;-->
+<!--&lt;!&ndash;搜索数据展示&ndash;&gt;-->
+<!--<div class="search-data" id="search-data">-->
+
+
+<!--</div>-->
+<!--&lt;!&ndash;搜索数据展示 end&ndash;&gt;-->
+<!--&lt;!&ndash;物流运输详细信息&ndash;&gt;-->
+<!--<div style="margin: 0 auto;width: 1150px;height: 340px">-->
+<!--	<div style="width: 800px;float: left;border: #9E9E9E solid 1px;height: 340px ">-->
+<!--		<div class="search-detail">-->
+<!--			<div style="text-align: center;">-->
+<!--				<p style="color: #005ba8;font-size: 22px;margin-top: 20px">重庆-厦门</p>-->
+<!--				<p style="font-size: 20px;font-family: 新宋体;margin-bottom: 30px">运输价格：-->
+<!--					<span style="color: red;font-size: 22px;font-family: 微軟正黑體">3400</span>-->
+<!--					元/车-->
+<!--				</p>-->
+<!--			</div>-->
+<!--			<p>-->
+<!--				<span>起始地：重庆</span>-->
+<!--				<span>目的地：厦门</span>-->
+<!--				<span>截止日期：2020-10-11</span>-->
+<!--			</p>-->
+<!--			<p class="search-detail-p">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--			<p>-->
+<!--				<span>途经区域：重庆</span>-->
+<!--				<span>付款方式：到付</span>-->
+<!--				<span>提供上门服务：是</span>-->
+<!--			</p>-->
+<!--			<p class="search-detail-p">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--			<p>-->
+<!--				<span>车辆类型：高栏车</span>-->
+<!--				<span>载重：20吨</span>-->
+<!--				<span>体积：60.00立方米</span>-->
+<!--			</p>-->
+<!--			<p class="search-detail-p">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--			<p>-->
+<!--				<span>货物类型：电询</span>-->
+<!--				<span>货物状态：待货</span>-->
+<!--				<span>返程车：是</span>-->
+<!--			</p>-->
+<!--			<p class="search-detail-p">-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+<!--			<div class="search-detail-div" >-->
+<!--				<img src="images/tel.png">-->
+<!--				<span>178641651</span>-->
+<!--				<span style="margin-left: 10px">李静</span>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--	<div class="search-detail2">-->
+<!--		<h2 style="font-family: 楷体;margin-top: 40px;text-align: center">重庆正泰软件有限公司</h2>-->
+<!--		<p>联系人&nbsp;&nbsp;&nbsp;：&nbsp;&nbsp;<span style="color: orange;font-family: 方正粗黑宋简体;font-size: 20px">正泰</span></p>-->
+<!--		<p>手&nbsp;机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：<span>17784342598</span></p>-->
+<!--		<p>公司电话：<span>023-55756595</span></p>-->
+<!--		<p>公司地址：<span>重庆市渝北区泰山大道96号</span></p>-->
+<!--	</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;物流运输详细信息 end&ndash;&gt;-->
+
+
 <!--主题背景图-->
-<div class="beij">
-	<div class="chang">
-		<img src="http://localhost:8080/images/home.png" width="16px" height="12px" alt="" class="home">
-		<ul class="beij_ul" id="beij_ul">
-			<li><a href="#">当前位置——首页——车辆展示</a></li>
-			<li><a href="#">当前位置——首页——企业文化</a></li>
-			<li><a href="#">当前位置——首页——领导致辞</a></li>
-			<li><a href="#">当前位置——首页——大事记</a></li>
-			<li><a href="#">当前位置——首页——荣誉资质</a></li>
-			<li><a href="#">当前位置——首页——联系我们</a></li>
-		</ul>
-		<ol class="beij_ol" id="beij_ol">
-			<li>
-				<a href="#" index="0">公司简介</a>
-				<p index="0"></p>
-			</li>
-			<li>
-				<a href="#" index="1">企业文化</a>
-				<p index="1"></p>
-			</li>
-			<li>
-				<a href="#" index="2">领导致辞</a>
-				<p index="2"></p>
-			</li>
-			<li>
-				<a href="#" index="3">大事记</a>
-				<p index="3"></p>
-			</li>
-			<li>
-				<a href="#" index="4">荣誉资质</a>
-				<p index="4"></p>
-			</li>
-			<li>
-				<a href="#" index="5">联系我们</a>
-				<p index="5"></p>
-			</li>
-		</ol>
-	</div>
+<div class="beijing">
 	<img class="yunduo" src="http://localhost:8080/images/yunduo.png" alt="">
 </div>
 <!--主题背景图 end-->
-<!--内容显示-->
-<div class="cont">
-	<!--主题-->
-	<div class="cont_zt">
-		<span>Welcome to Xiaowan Logistics</span>
-		<div class="cont_h1">
-			<h1 id="cont_h1_1">公司简介</h1>
-			<h1>企业文化</h1>
-			<h1>领导致辞</h1>
-			<h1>大事记</h1>
-			<h1>荣誉资质</h1>
-			<h1>联系我们</h1>
+
+<!--新闻-->
+<div style="min-width: 768px;background: #fef9ff;height: 620px">
+	<!--新闻标题-->
+	<div class="title0">
+		<img src="images/title_block.png" width="5" height="20" alt=""/>
+		<h1> 新闻动态</h1>
+	</div>
+	<!--新闻标题 end-->
+	<!--新闻列表-->
+	<div class="newslist">
+		<!--内容-->
+		<ul>
+			<li class="ns_first">
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					日前，因苏伊士运河中“长赐号”搁浅事件而造成了航运多日大拥堵。最新消息显示，当地时间3月29日，“长赐号”已成功上浮，但运河受阻带来的蝴蝶效应却不容忽视。
+
+					　　2苏伊士运河航道恢复通行
+
+					　　苏伊士运河管理局主席乌萨马·拉比耶29日晚在埃及东北部城市伊斯梅利亚举行的新闻发布会上说，随着搁浅重型货轮成功获救，苏伊士运河已于当地时间下午18点（北京时间晚上24点）完全恢复通航，约113艘船只将于29晚至30日上午通过运河。接下来管理局将夜以继日解决船只拥堵问题，运河有望在四日内恢复正常通行。
+
+					　　拉比耶介绍说，苏伊士运河管理局已经对搁浅货轮进行了初步检查，未发现该货轮有任何技术问题。他表示，运河管理局将不会对货轮船员进行调查，其他机构将接手调查程序。在调查结果出炉前，该货轮将一直停靠在埃及水域内。
+
+					　　据外媒报道，为了将这个长1300英尺、重22万吨的巨型集装箱货轮从河堤上移出，运河当局动用了多国救援队，目前在现场有10艘拖轮和特殊的疏浚设备。在整个挖掘过程中，约有20000吨泥沙被挖出。
+
+					　　除了救援设备外，29日的涨潮也对货轮脱险起到了关键作用。据《纽约时报》报道，救援方面的负责人表示，随着水位一夜间飙升，船慢慢恢复了浮力。
+
+					　　堵塞危机造成巨大损失
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					九龙西宛项目2017年第一期商业招商公告
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					民心佳园等14个小区第19次摇号配租签约时间表
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					重庆市城投公租房建设有限公司城南家园项目2017年第一期商业招商公告
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					重庆市城投公租房建设有限公司樵坪人家项目2017年第一期商业招商公告
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					主城区公租房举行摇号 配租公租房19349套
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					重庆市公共住房开发建设投资有限公司部分公租房项目商业正在招商
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					市公租房管理局组织公租房管理信息系统“三排查一规范”技术服务周活动
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					重庆市公共租赁住房申请公告（第25号）
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+			<li>
+				<img src="images/slist_block.png"  width="10" height="12" alt=""/>
+				<a href="#">
+					6月27日将举行主城区公租房摇号配租
+				</a>
+				<span>2017-08-02</span>
+				<img class="bianju" src="images/newslist_xuxian.png" width="621" height="1" alt=""/>
+			</li>
+		</ul>
+		<!--内容 end-->
+		<!--下标-->
+		<div class="xiab">
+			<ol>
+				<li>
+					<a href="#">上一页</a>
+				</li>
+				<li>
+					<a href="#">1</a>
+				</li>
+				<li>
+					<a href="#">2</a>
+				</li>
+				<li>
+					<a href="#">3</a>
+				</li>
+				<li>
+					<a href="#">下一页</a>
+				</li>
+			</ol>
 		</div>
-		<p></p>
+		<!--下标 end-->
 	</div>
-	<!--主题 end-->
-	<!--内容-->
-	<div class="cont_nr">
-		<span> &nbsp; &nbsp; &nbsp; &nbsp; 吉林省吉瑞石油钻采工程有限公司成立于2009年1月，总投资1.5亿元，公司位于中国吉林省吉林市。</span>
-		<span> &nbsp; &nbsp; &nbsp; &nbsp; 现其中钻井公司有员工204人，其中高级工程师8人，工程师15人。主要从事石油钻采(包括定向井、丛式井、水平井、特殊工艺井、煤层气井、温泉井、地热井、地球物理勘探井)等多种井型的钻井施工。市场覆盖中石油、中石化、吉视传媒、美达房地产、长白山国际旅游度假区、大连等国内各大油气田及温泉旅游开发。</span>
-		<span> &nbsp; &nbsp; &nbsp; &nbsp; 公司以雄厚的实力和技术力量，相继承担了一系列科技含量高、风险难度大的钻井项目，得到了业内人士的一致好评及肯定！
-		</span>
-	</div>
-	<!--内容 end-->
-	<!--图片-->
-	<img src="http://localhost:8080/images/img_1.jpg" alt="" class="cont_img1">
-	<!--图片 end-->
-	<img src="http://localhost:8080/images/cont_tp.png" alt="" class="cont_img2">
+	<!--新闻列表 end-->
 </div>
-<!--内容显示 end-->
-<!--办公环境图片轮换-->
-<div class="bangong">
-	<div class="bghj">
-		<img src="http://localhost:8080/images/qiehuan.png" alt="" class="bghj_img">
-		<div class="bghj_div1">
-			<div class="bghj_div2">
-				<a href="javascript:void(0)" class="qh_1"><img src="http://localhost:8080/images/qh_1.png" alt=""></a>
-				<a href="javascript:void(0)" class="qh_2"><img src="http://localhost:8080/images/qh_2.png" alt=""></a>
-				<a href="javascript:void(0)" class="qh_3"><img src="http://localhost:8080/images/qh_3.png" alt=""></a>
-				<a href="javascript:void(0)" class="qh_4"><img src="http://localhost:8080/images/qh_4.png" alt=""></a>
-				<a href="javascript:void(0)" class="qh_5"><img src="http://localhost:8080/images/qh_5.png" alt=""></a>
-				<a href="javascript:void(0)" class="qh_6"><img src="http://localhost:8080/images/huanjing2.jpg" alt=""></a>
-			</div>
-		</div>
-	</div>
-</div>
-<!--办公环境图片轮换 end-->
+<!--新闻 end -->
+
+
 <!--办公环境展示-->
 <div class="huanj">
 	<h1>办公环境展示</h1>
 	<p></p>
 	<div class="huanj_img">
 		<a href="javascript:void(0)" class="huanj_1" id="huanj_1">
-			<img src="http://localhost:8080/images/huanjing1.jpg" alt="">
+			<img src="images/huanjing1.jpg" alt="">
 			<span id="huanj_span">办公环境展示</span>
 			<p id="huanj_p1">办公环境展示</p>
 		</a>
 		<ul class="huanj_ul" id="huanj_ul">
 			<li>
 				<a href="javascript:void(0)" index="0" >
-					<img src="http://localhost:8080/images/huanjing2.jpg" alt="">
+					<img src="images/huanjing2.jpg" alt="">
 					<span index="0" >办公环境展示</span>
 					<p index="0" >办公环境展示</p>
 				</a>
 			</li>
 			<li>
 				<a href="javascript:void(0)" index="1" >
-					<img src="http://localhost:8080/images/huanjing3.jpg" alt="">
+					<img src="images/huanjing3.jpg" alt="">
 					<span index="1" >办公环境展示</span>
 					<p index="1" >办公环境展示</p>
 				</a>
 			</li>
 			<li>
 				<a href="javascript:void(0)" index="2" >
-					<img src="http://localhost:8080/images/huanjing4.jpg" alt="">
+					<img src="images/huanjing4.jpg" alt="">
 					<span index="2" >办公环境展示</span>
 					<p index="2" >办公环境展示</p>
 				</a>
 			</li>
 			<li>
 				<a href="javascript:void(0)" index="3" >
-					<img src="http://localhost:8080/images/huanjing5.jpg" alt="">
+					<img src="images/huanjing5.jpg" alt="">
 					<span index="3" >办公环境展示</span>
 					<p index="3" >办公环境展示</p>
 				</a>
@@ -425,26 +550,7 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 	<p>版权所有：重庆市巴南区重庆工程学院 </p>
 </div>
 <!--下标链接 end-->
-<!--支付宝，QQ，微信-->
-<a href="javascript:void(0)" class="weixin1" id="weixin1"><img src="http://localhost:8080/images/weixin.png" alt=""></a>
-<a href="javascript:void(0)" class="weixin2" id="weixin2"><img src="http://localhost:8080/images/weixin2.png" alt=""></a>
 
-<a href="javascript:void(0)" class="qq">
-	<img src="http://localhost:8080/images/qq.png" alt="">
-	<span>504240410</span>
-</a>
-
-<div class="rem0" id="rem0">
-	<div class="rem" id="rem">
-		<a href="javascript:void(0)" class="zfb"><img src="http://localhost:8080/images/zfb.png" alt=""></a>
-		<input type="button" value="X" id="shanchu">
-	</div>
-</div>
-<div class="saoma" id="saoma">
-	<img src="http://localhost:8080/images/zfb1.png" alt="" class="zfb1" id="zfb1">
-	<input type="button" value="X" id="shanchu2">
-</div>
-<!--支付宝，QQ，微信 end-->
 <script src="js/lss1.js"></script>
 <script type="text/javascript" src="js/web.js"></script>
 <script src="js/jquery-1.12.4.min.js"></script>
@@ -452,6 +558,7 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
 <script>
 	var welcome_p = document.getElementById("welcome_p");
 	welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
+
 </script>
 
 </body>
