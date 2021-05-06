@@ -1,10 +1,14 @@
 package com.swp.dao;
 
+import com.swp.common.CommonResult;
 import com.swp.entity.UserEntity;
 import com.swp.model.condition.UserLoginCondition;
 import com.swp.model.condition.UserRegisterCondition;
+import com.swp.model.dto.UserAdminLoginDTO;
 import com.swp.model.dto.UserDTO;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author wanping.sheng
@@ -23,6 +27,12 @@ public interface UserDao {
      * @param condition
      */
     UserDTO login(UserLoginCondition condition);
+
+    /**
+     * 管理端登录验证
+     * @param condition
+     */
+    List<UserAdminLoginDTO> adminLogin(UserLoginCondition condition);
 
     /**
      * 注册

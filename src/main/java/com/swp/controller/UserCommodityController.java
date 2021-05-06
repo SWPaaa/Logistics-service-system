@@ -1,9 +1,8 @@
 package com.swp.controller;
 
 import com.swp.common.CommonResult;
-import com.swp.entity.UserCommodityEntity;
-import com.swp.model.condition.UserCarPageCondition;
 import com.swp.model.condition.UserCommodityPageCondition;
+import com.swp.model.condition.UserCommoditySaveCondition;
 import com.swp.service.UserCommodityService;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +30,17 @@ public class UserCommodityController {
     @GetMapping("/page")
     public CommonResult page(UserCommodityPageCondition condition) {
         return CommonResult.ok(userCommodityService.page(condition));
+    }
+
+    /**
+     * 保存
+     * @param condition
+     * @return
+     */
+    @PostMapping
+    public CommonResult save(@RequestBody(required = false) UserCommoditySaveCondition condition){
+        userCommodityService.save(condition);
+        return CommonResult.ok();
     }
 
 

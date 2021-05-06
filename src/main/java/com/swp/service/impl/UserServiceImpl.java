@@ -7,6 +7,7 @@ import com.swp.common.CommonResult;
 import com.swp.entity.UserEntity;
 import com.swp.model.condition.UserLoginCondition;
 import com.swp.model.condition.UserRegisterCondition;
+import com.swp.model.dto.UserAdminLoginDTO;
 import com.swp.model.dto.UserDTO;
 import com.swp.dao.UserDao;
 import com.swp.service.UserService;
@@ -20,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author wanping.sheng
@@ -58,6 +61,43 @@ public class UserServiceImpl implements UserService {
 
         return CommonResult.ok(userDTO);
 
+    }
+
+    /**
+     * 管理端登录验证
+     * @param condition
+     * @return
+     */
+    @Override
+    public CommonResult adminLogin(UserLoginCondition condition) {
+        List<UserAdminLoginDTO> list = userDao.adminLogin(condition);
+
+        if(list == null){
+            return new CommonResult(CommonErrorEnum.NO_USERNAME);
+        }else if(list.get(0).getStatus().equals(UserStatusEnum.NO_AUDIT.value())){
+            return new CommonResult(CommonErrorEnum.STATUS_IS_NO);
+        }else if(list.get(0).getStatus().equals(UserStatusEnum.UNAPPROVE.value())){
+            return new CommonResult(CommonErrorEnum.UNAPPROVE);
+        }
+
+        List<UserAdminLoginDTO> tree = new ArrayList<>();
+        for (UserAdminLoginDTO user : list) {
+            //找到根节点
+            if (user.getParentId().equals(0L)) {
+                tree.add(user);
+            }
+            List<UserAdminLoginDTO> children = new ArrayList<>();
+            //再次遍历list，找到user的子节点
+            for (UserAdminLoginDTO node : list) {
+                // 寻找当前数据的所有直系子数据
+                if (node.getParentId().equals(user.getMenuId())) {
+                    children.add(node);
+                }
+            }
+            // 把子节点放到父节点内
+            user.setChild(children);
+        }
+        return CommonResult.ok(tree);
     }
 
     /**

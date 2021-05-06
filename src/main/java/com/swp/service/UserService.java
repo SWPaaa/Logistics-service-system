@@ -22,11 +22,18 @@ import java.io.IOException;
  */
 @Validated
 public interface UserService {
+
     /**
      * 登录验证
      * @param condition
      */
     CommonResult login(UserLoginCondition condition);
+
+    /**
+     * 管理端登录验证
+     * @param condition
+     */
+    CommonResult adminLogin(UserLoginCondition condition);
 
     /**
      * 注册

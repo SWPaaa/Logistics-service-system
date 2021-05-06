@@ -6,19 +6,18 @@
  */
 var personalCenter = document.getElementById("personal-center");
 var userType = window.localStorage.getItem("userType");
-console.info(userType)
-var html1 = "<li><a href=\"web_logistics_personal_car.html\">车辆管理</a></li>\n" +
+var html1 = "<li><a href=\"web_logistics_personal_car.html\">新增车辆</a></li>\n" +
     "\t\t\t\t\t<li><a href=\"web_logistics_personal_publish.html\">发布物流</a></li>\n" +
     "\t\t\t\t\t<li><a href=\"login.html\">退出登录</a></li>";
-var html2 = "<li><a href=\"web_logistics_personal_car.html\">车辆管理</a></li>\n" +
-    "\t\t\t\t\t<li><a href=\"web_logistics_personal_publish.html\">发布物流</a></li>\n" +
+var html2 = "<li><a href=\"web_commodity_publish.html\">发布商品</a></li>\n" +
     "\t\t\t\t\t<li><a href=\"login.html\">退出登录</a></li>";
+var html3 = "<li><a href=\"login.html\">退出登录</a></li>";
 if(userType == 0){// 商品
-    personalCenter.innerHTML = html1;
-    console.info(userType)
-}else if(userType == 1){// 物流
     personalCenter.innerHTML = html2;
-    console.info(userType)
+}else if(userType == 1){// 物流
+    personalCenter.innerHTML = html1;
+}else if(userType == 2){// 管理员
+    personalCenter.innerHTML = html3;
 }
 /**
  * 给input增加下拉省市
@@ -140,8 +139,11 @@ function on_search_button(){
             }
         },
         error: function (result) {
-            console.info(result)
-            //window.location.href = "error404.html";
+            if(result.status == 500){
+                window.location.href = "error500.html";
+            }else if(result.status == 404){
+                window.location.href = "error404-1.html";
+            }
         }
     });
 }

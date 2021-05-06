@@ -29,12 +29,21 @@ public class UserController {
     @Autowired
     private UserService userService;
     /**
-     * 登录验证
+     * pc端登录验证
      * @param condition
      */
     @GetMapping("/login")
     public CommonResult login(UserLoginCondition condition){
         return userService.login(condition);
+    }
+
+    /**
+     * 管理端登录验证
+     * @param condition
+     */
+    @PostMapping("/login/admin")
+    public CommonResult adminLogin(@RequestBody(required = false) UserLoginCondition condition){
+        return userService.adminLogin(condition);
     }
 
     /**

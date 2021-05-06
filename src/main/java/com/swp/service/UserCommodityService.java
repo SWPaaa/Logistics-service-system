@@ -1,9 +1,6 @@
 package com.swp.service;
-
-import com.swp.entity.UserCommodityEntity;
-import com.swp.model.condition.UserCarPageCondition;
 import com.swp.model.condition.UserCommodityPageCondition;
-import com.swp.model.dto.UserCarPageDTO;
+import com.swp.model.condition.UserCommoditySaveCondition;
 import com.swp.model.dto.UserCommodityPageDTO;
 
 import java.util.List;
@@ -22,5 +19,11 @@ public interface UserCommodityService {
      * @return
      */
     List<UserCommodityPageDTO> page(UserCommodityPageCondition condition);
+
+    /**
+     * 保存
+     * @param condition
+     */
+    void save(UserCommoditySaveCondition condition);
 
 }

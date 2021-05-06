@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.swp.dao.NewsDao">
+
+
+    <select id="getAll" resultType="com.swp.model.dto.NewsDTO">
+        SELECT id,title,concent
+        FROM t_news WHERE is_delete = 0
+    </select>
+
+
+</mapper>

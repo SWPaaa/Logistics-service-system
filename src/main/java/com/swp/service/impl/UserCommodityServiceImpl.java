@@ -1,10 +1,9 @@
 package com.swp.service.impl;
 
-import com.swp.entity.UserCommodityEntity;
+import com.swp.dao.AreaDao;
 import com.swp.dao.UserCommodityDao;
-import com.swp.model.condition.UserCarPageCondition;
 import com.swp.model.condition.UserCommodityPageCondition;
-import com.swp.model.dto.UserCarPageDTO;
+import com.swp.model.condition.UserCommoditySaveCondition;
 import com.swp.model.dto.UserCommodityPageDTO;
 import com.swp.service.UserCommodityService;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,9 @@ public class UserCommodityServiceImpl implements UserCommodityService {
     @Resource
     private UserCommodityDao userCommodityDao;
 
+    @Resource
+    private AreaDao areaDao;
+
     /**
      * 搜索发布的商品
      * @param condition
@@ -31,5 +33,16 @@ public class UserCommodityServiceImpl implements UserCommodityService {
     @Override
     public List<UserCommodityPageDTO> page(UserCommodityPageCondition condition) {
         return userCommodityDao.page(condition);
+    }
+
+    /**
+     * 保存
+     * @param condition
+     */
+    @Override
+    public void save(UserCommoditySaveCondition condition) {
+        condition.setAreaNameDestination(areaDao.getByCode(condition.getAreaCodeDestination()).getName());
+        condition.setAreaNameOriginal(areaDao.getByCode(condition.getAreaCodeOriginal()).getName());
+        userCommodityDao.save(condition);
     }
 }

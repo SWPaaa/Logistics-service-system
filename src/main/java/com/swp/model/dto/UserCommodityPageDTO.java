@@ -56,6 +56,10 @@ public class UserCommodityPageDTO implements Serializable {
      */
     private String realName;
     /**
+     * 公司name
+     */
+    private String companyName;
+    /**
      * 公司电话
      */
     private String companyPhone;

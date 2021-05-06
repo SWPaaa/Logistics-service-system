@@ -226,27 +226,28 @@ line-height:30px;color: black;text-align: center;font-size: 18px">
     var welcome_p = document.getElementById("welcome_p");
     welcome_p.innerText = window.localStorage.getItem("name")+"   欢迎您!";
 
-    let commodityType = document.getElementById("search-commodity-select").value;
+    let commodityType = document.getElementById("search-commodity-select");
     let areaNameOriginal = document.getElementById("search-commodity-select-open");
     let areaNameDestination = document.getElementById("search-commodity-select-end");
 
+    var searchData;
     function commodity_search_button(){
-console.info(commodityType)
-        if(commodityType == "货物类型"){
-            commodityType = null;
+        let commodityTypeValue = commodityType.value;
+        if(commodityTypeValue == "货物类型"){
+            commodityTypeValue = null;
         }
-
         $.ajax({
             type: 'GET',
             url: "/api/v1/user/commodity/page",
             data: {
-                commodityType:commodityType,
+                commodityType:commodityTypeValue,
                 areaNameOriginal:areaNameOriginal.value,
                 areaNameDestination:areaNameDestination.value,
             },
             async: false,
             success: function (result) {
                 if (result.code == 0) {
+                    searchData = result.data;
                     var html = '<p class="search-commodity-data-p">\n' +
                         '        <span>商品类型</span>\n' +
                         '        <span>起始地</span>\n' +
@@ -258,7 +259,7 @@ console.info(commodityType)
                         var data = result.data[i];
                         var commodityType = commodityTypeEnum[data.commodityType];
                         var commodityStatus = commodityStatusEnum[data.status];
-                        html += "<div class='search-commodity-select-data-div'>\n" +
+                        html += "<div class='search-commodity-select-data-div' onclick='searchCommodityBtn(this)'>\n" +
                             "        <span>" +commodityType+ "</span>\n" +
                             "        <span>" +data.areaNameOriginal+ "</span>\n" +
                             "        <span>" +data.areaNameDestination+ "</span>\n" +
@@ -277,10 +278,30 @@ console.info(commodityType)
                 }
             },
             error: function (result) {
-                console.info(result)
-                //window.location.href = "error404.html";
+                if(result.status == 500){
+                    window.location.href = "error500.html";
+                }else if(result.status == 404){
+                    window.location.href = "error404-1.html";
+                }
+
             }
         });
+    }
+    // 点击跳转详情
+    function searchCommodityBtn(event){
+        window.localStorage.setItem("areaNameOriginal", searchData[event.index].areaNameOriginal);
+        window.localStorage.setItem("areaNameDestination", searchData[event.index].areaNameDestination);
+        window.localStorage.setItem("endDate", searchData[event.index].endDate);
+        window.localStorage.setItem("commodityType", searchData[event.index].commodityType);
+        window.localStorage.setItem("service", searchData[event.index].service);
+        window.localStorage.setItem("status", searchData[event.index].status);
+        window.localStorage.setItem("companyName", searchData[event.index].companyName);
+        window.localStorage.setItem("phone", searchData[event.index].phone);
+        window.localStorage.setItem("realName", searchData[event.index].realName);
+        window.localStorage.setItem("companyAddress", searchData[event.index].companyAddress);
+        window.localStorage.setItem("companyPhone", searchData[event.index].companyPhone);
+
+        window.location.href = "web_commodity_search_detail.html"
     }
 </script>
 
