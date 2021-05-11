@@ -251,10 +251,8 @@ height: 30px" type="button" onclick="btnClick2()" value="提 交" class="reg_btn
             url: "http://localhost:8080/api/v1/car/"+window.localStorage.getItem("userId"), success: function (result) {
                 if (result != null) {
                     user = result.data;
-                    console.info(result.data);
                     for(let i=0;i<result.data.length;i++){
-                        console.info(result.data[i])
-                        console.info(result.data[i].name)
+
                         var  varItem = new Option(result.data[i].name, result.data[i].id);
                         document.getElementById("car_type").options.add(varItem);
                     }

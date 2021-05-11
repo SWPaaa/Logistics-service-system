@@ -5,21 +5,26 @@ import com.swp.Enum.UserTypeEnum;
 import com.swp.common.CommonErrorEnum;
 import com.swp.common.CommonResult;
 import com.swp.entity.UserEntity;
+import com.swp.model.condition.UserListCondition;
 import com.swp.model.condition.UserLoginCondition;
 import com.swp.model.condition.UserRegisterCondition;
 import com.swp.model.dto.UserAdminLoginDTO;
 import com.swp.model.dto.UserDTO;
 import com.swp.dao.UserDao;
+import com.swp.model.dto.UserDetailsDTO;
+import com.swp.model.dto.UserListDTO;
 import com.swp.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,10 +53,13 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public CommonResult login(UserLoginCondition condition) {
-
+        // 获取数据并加密
         UserDTO userDTO = userDao.login(condition);
-
+        String encrypt = DigestUtils.md5DigestAsHex((condition.getPassword()+userDTO.getSalt()).getBytes());
+        // 验证
         if(userDTO == null){
+            return new CommonResult(CommonErrorEnum.NO_USERNAME);
+        }else if(!userDTO.getPassword().equals(encrypt)){
             return new CommonResult(CommonErrorEnum.NO_USERNAME);
         }else if(userDTO.getStatus().equals(UserStatusEnum.NO_AUDIT.value())){
             return new CommonResult(CommonErrorEnum.STATUS_IS_NO);
@@ -60,7 +68,6 @@ public class UserServiceImpl implements UserService {
         }
 
         return CommonResult.ok(userDTO);
-
     }
 
     /**
@@ -70,33 +77,41 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public CommonResult adminLogin(UserLoginCondition condition) {
+
         List<UserAdminLoginDTO> list = userDao.adminLogin(condition);
-
-        if(list == null){
-            return new CommonResult(CommonErrorEnum.NO_USERNAME);
-        }else if(list.get(0).getStatus().equals(UserStatusEnum.NO_AUDIT.value())){
-            return new CommonResult(CommonErrorEnum.STATUS_IS_NO);
-        }else if(list.get(0).getStatus().equals(UserStatusEnum.UNAPPROVE.value())){
-            return new CommonResult(CommonErrorEnum.UNAPPROVE);
-        }
-
         List<UserAdminLoginDTO> tree = new ArrayList<>();
-        for (UserAdminLoginDTO user : list) {
-            //找到根节点
-            if (user.getParentId().equals(0L)) {
-                tree.add(user);
+
+        if(list.size() == 0){
+            return new CommonResult(CommonErrorEnum.NO_USERNAME);
+        }else{
+            String encrypt = DigestUtils.md5DigestAsHex((condition.getPassword()+list.get(0).getSalt()).getBytes());
+            if(!list.get(0).getPassword().equals(encrypt)){
+                return new CommonResult(CommonErrorEnum.NO_USERNAME);
+            }else if(list.get(0).getStatus().equals(UserStatusEnum.NO_AUDIT.value())){
+                return new CommonResult(CommonErrorEnum.STATUS_IS_NO);
+            }else if(list.get(0).getStatus().equals(UserStatusEnum.UNAPPROVE.value())){
+                return new CommonResult(CommonErrorEnum.UNAPPROVE);
             }
-            List<UserAdminLoginDTO> children = new ArrayList<>();
-            //再次遍历list，找到user的子节点
-            for (UserAdminLoginDTO node : list) {
-                // 寻找当前数据的所有直系子数据
-                if (node.getParentId().equals(user.getMenuId())) {
-                    children.add(node);
+
+            // 获取树形菜单
+            for (UserAdminLoginDTO user : list) {
+                //找到根节点
+                if (user.getParentId().equals(0L)) {
+                    tree.add(user);
                 }
+                List<UserAdminLoginDTO> children = new ArrayList<>();
+                //再次遍历list，找到user的子节点
+                for (UserAdminLoginDTO node : list) {
+                    // 寻找当前数据的所有直系子数据
+                    if (node.getParentId().equals(user.getMenuId())) {
+                        children.add(node);
+                    }
+                }
+                // 把子节点放到父节点内
+                user.setChild(children);
             }
-            // 把子节点放到父节点内
-            user.setChild(children);
         }
+
         return CommonResult.ok(tree);
     }
 
@@ -114,9 +129,8 @@ public class UserServiceImpl implements UserService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/");
         // 比如：/2021/03/11
         String format = sdf.format(new Date());
-        //  new File("").getCanonicalPath()获取本地项目路径，加上保存目录路径
-        String path = new File("").getCanonicalPath()+ "/upload/";
-        // 路径加上日期作为一个目录
+        //  new File("").getCanonicalPath()获取本地服务器路径，加上保存目录路径
+        String path = "D:\\LogisticsServiceSystem\\Server\\LogisticsServiceSystem\\src\\main\\webapp\\images\\";
         File folder = new File(path + format);
         // 不是一个目录的时候
         if (!folder.isDirectory()) {
@@ -133,17 +147,62 @@ public class UserServiceImpl implements UserService {
         }
 
         condition.setName(condition.getUsername());
-        condition.setCompanyUrl(path+ format+condition.getFile().getOriginalFilename());
+        condition.setCompanyUrl("http://localhost:8080/images/"+ format+condition.getFile().getOriginalFilename());
         // 存到entity
         UserEntity entity = new UserEntity();
         BeanUtils.copyProperties(condition, entity);
         entity.setSex(condition.getSex().value());
         entity.setType(condition.getType().value());
-        System.out.println(entity);
+        // 密码加密
+        // secureRandom是比Random安全的随机数
+        SecureRandom sr1 = new SecureRandom();
+        // 生成6位随机数，sr1.nextInt(900000)是生成900000以内的随机数
+        entity.setSalt(String.valueOf(sr1.nextInt(900000) + 100000));
+        // 密码加随机生成的盐确保加密后的密文唯一性
+        entity.setPassword(DigestUtils.md5DigestAsHex((condition.getPassword()+entity.getSalt()).getBytes()));
         // 保存
         userDao.save(entity);
 
         return CommonResult.ok();
     }
+
+    /**
+     * 用户管理
+     * @param condition
+     * @return
+     */
+    @Override
+    public List<UserListDTO> ListData(UserListCondition condition) {
+        return userDao.ListData(condition.getUsername(), condition.getIndex(), condition.getCount());
+    }
+
+    /**
+     * 删除
+     * @param id
+     */
+    @Override
+    public void delete(Long id) {
+        userDao.delete(id);
+    }
+
+    /**
+     * 修改状态
+     * @param id
+     * @param Status
+     */
+    @Override
+    public void updateStatus(Long id, Integer Status) {
+        userDao.updateStatus(id, Status);
+    }
+
+    /**
+     * 用户审核详情
+     * @return
+     */
+    @Override
+    public List<UserDetailsDTO> getUserDetails(UserListCondition condition) {
+        return userDao.getUserDetails(condition.getUsername(), condition.getIndex(), condition.getCount());
+    }
+
 
 }

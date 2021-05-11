@@ -22,6 +22,12 @@ public class UserEntity implements Serializable {
     private String password;
 
     /**
+     * 盐
+     */
+    private String salt;
+
+
+    /**
      * 状态(0为未审核，1为审核通过，2位审核未通过)
      */
     private Integer status;

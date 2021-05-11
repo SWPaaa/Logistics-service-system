@@ -4,9 +4,33 @@
 
 
     <select id="getAll" resultType="com.swp.model.dto.NewsDTO">
-        SELECT id,title,concent
-        FROM t_news WHERE is_delete = 0
+        SELECT id,title,content
+        FROM t_news
+        WHERE is_delete = 0
+        <if test="title != null and title != ''">
+            AND title like concat('%',#{title},'%')
+        </if>
+        <if test="index != null and count != null">
+            LIMIT #{index},#{count}
+        </if>
+        ORDER BY id DESC
     </select>
 
+    <update id="delete">
+        update t_news set is_delete = 1
+        WHERE id = #{id}
+    </update>
 
+    <update id="update">
+        update t_news
+        set
+            title = #{title},
+            content = #{content}
+        WHERE id = #{id}
+    </update>
+
+    <insert id="save">
+        insert into t_news(title,content)
+        values(#{title},#{content})
+    </insert>
 </mapper>

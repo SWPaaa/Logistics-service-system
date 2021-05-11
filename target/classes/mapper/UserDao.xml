@@ -10,7 +10,6 @@
             t_user
         WHERE
             username = #{username}
-            AND password = #{password}
             AND is_delete = 0
         LIMIT 1
     </select>
@@ -20,6 +19,8 @@
             a.id AS userId,
             a.name AS name,
             a.status,
+            a.salt,
+            a.password,
             d.id AS menuId,
             d.name AS menuName,
             d.parent_id AS parentId,
@@ -38,18 +39,17 @@
           AND c.is_delete = 0
           AND d.is_delete = 0
           AND a.username = #{username}
-          AND a.password = #{password}
     </select>
     <!--注册-->
     <insert id="save">
         INSERT INTO
             t_user(
                 username,password,type,name,real_name,phone,remark,company_name,
-                company_address,company_phone,company_url,sex,area_code)
+                company_address,company_phone,company_url,sex,area_code,salt)
         VALUES (
                 #{username},#{password},#{type},
                 #{name},#{realName},#{phone},#{remark},#{companyName},#{companyAddress},#{companyPhone},
-                #{companyUrl},#{sex},#{areaCode}
+                #{companyUrl},#{sex},#{areaCode},#{salt}
                 )
     </insert>
     <!--根据用户名获取数据-->
@@ -58,5 +58,70 @@
         WHERE username = #{username}
         AND is_delete = 0
         LIMIT 1
+    </select>
+    <!--用户管理-->
+    <select id="ListData" resultType="com.swp.model.dto.UserListDTO">
+        SELECT
+            id,
+            username,
+            name,
+            type,
+            status,
+            phone,
+            company_address AS companyAddress,
+            company_name AS companyName
+        FROM
+             t_user
+        WHERE
+            is_delete = 0
+            <if test="username != null and username != ''">
+              AND username like CONCAT('%', #{username}, '%')
+            </if>
+            <if test="index != null and count != null">
+                LIMIT #{index}, #{count}
+            </if>
+    </select>
+    <!--逻辑删除-->
+    <update id="delete">
+        update
+            t_user
+        SET is_delete = 1
+        where id = #{id}
+    </update>
+    <!--修改状态-->
+    <update id="updateStatus">
+        update
+            t_user
+        SET status = #{status}
+        where id = #{id}
+    </update>
+    <!--用户审核详情-->
+    <select id="getUserDetails" resultType="com.swp.model.dto.UserDetailsDTO">
+        SELECT
+            a.id,
+            a.username,
+            a.real_name AS realName,
+            a.sex,
+            a.phone,
+            a.company_name AS companyName,
+            b.name AS areaName,
+            a.company_address AS companyAddress,
+            a.company_phone AS companyPhone,
+            a.type,
+            a.company_url AS companyUrl,
+            a.remark
+        FROM
+            t_user AS a LEFT JOIN t_area AS b
+            ON a.area_code = b.code
+        WHERE
+            a.is_delete = 0
+            AND a.status = 0
+            AND a.type != 2
+            <if test="username != null and username != ''">
+                AND a.username like CONCAT('%', #{username}, '%')
+            </if>
+            <if test="index != null and count != null">
+                LIMIT #{index}, #{count}
+            </if>
     </select>
 </mapper>

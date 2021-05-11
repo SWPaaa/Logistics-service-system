@@ -30,4 +30,6 @@ public class UserDTO implements Serializable {
     private Integer type;
 
     private String name;
+
+    private String salt;
 }

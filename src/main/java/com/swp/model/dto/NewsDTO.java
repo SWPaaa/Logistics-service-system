@@ -3,6 +3,7 @@ package com.swp.model.dto;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author wanping.sheng
@@ -27,4 +28,14 @@ public class NewsDTO implements Serializable {
      * 内容
      */
     private String content;
+
+    /**
+     * short内容
+     */
+    private String shortContent;
+
+    /**
+     * 创建时间
+     */
+    private LocalDateTime createTime;
 }

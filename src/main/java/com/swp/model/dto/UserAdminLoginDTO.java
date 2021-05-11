@@ -31,6 +31,14 @@ public class UserAdminLoginDTO implements Serializable {
      */
     private Integer status;
     /**
+     * 盐
+     */
+    private String salt;
+    /**
+     * 密码
+     */
+    private String password;
+    /**
      * 菜单id
      */
     private Long menuId;

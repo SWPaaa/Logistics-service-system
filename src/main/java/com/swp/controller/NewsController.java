@@ -2,12 +2,12 @@
 package com.swp.controller;
 
 import com.swp.common.CommonResult;
+import com.swp.model.condition.NewsListCondition;
+import com.swp.model.condition.NewsSaveCondition;
 import com.swp.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wanping.sheng
@@ -26,10 +26,47 @@ public class NewsController {
     @Autowired
     private NewsService service;
 
-
+    /**
+     * 获取新闻列表
+     * @param condition
+     * @return
+     */
     @GetMapping
-    public CommonResult getAll(){
-        return CommonResult.ok(service.getAll());
+    public CommonResult getAll(NewsListCondition condition){
+        return CommonResult.ok(service.getAll(condition));
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @PostMapping("/{id}/delete")
+    public CommonResult delete(@PathVariable("id")Long id){
+        service.delete(id);
+        return CommonResult.ok();
+    }
+
+    /**
+     * 修改
+     * @param id
+     * @return
+     */
+    @PostMapping("/{id}/update")
+    public CommonResult update(@PathVariable("id")Long id, @RequestBody NewsSaveCondition condition){
+        service.update(id,condition);
+        return CommonResult.ok();
+    }
+
+    /**
+     * 新增
+     * @param condition
+     * @return
+     */
+    @PostMapping
+    public CommonResult save(@RequestBody NewsSaveCondition condition){
+        service.save(condition);
+        return CommonResult.ok();
     }
 
 }
